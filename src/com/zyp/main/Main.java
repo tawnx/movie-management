@@ -5,8 +5,8 @@ import com.zyp.view.LoginUi;
 public class Main {
 
 	public static void main(String[] args) {
-		// test 2
 		// TODO Auto-generated method stub
+		// Test 2
 		new LoginUi();
 	}
 
