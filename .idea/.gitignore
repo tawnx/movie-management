@@ -1,0 +1,10 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/../../../../../../../:\BaiduNetdiskDownload\10：java swing管理系统源码 程序 代码 图形界面（11套）\电影票购票管理系统(视频+源码)\项目源码\MovieTicket\.idea/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# GitHub Copilot persisted chat sessions
+/copilot/chatSessions
