@@ -23,25 +23,19 @@ import com.zyp.entity.User;
 import com.zyp.service.UserService;
 import com.zyp.service.impl.UserServiceImpl;
 
-
-
-
-
-
-
 public class LoginUi implements ActionListener{
-	private JFrame jf = new JFrame(" 电影购票系统");
-	private Container con = jf.getContentPane();// 获得面板
+	private final JFrame jf = new JFrame("电影购票系统");
+	private final Container con = jf.getContentPane();// 获得面板
+
+	private final ImageIcon bg = new ImageIcon("images/bg.jpg");
+	private final ImageIcon btnbg = new ImageIcon("images/btn.png");
+	private final Toolkit toolkit = Toolkit.getDefaultToolkit();
+	private final Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
 	
-	private ImageIcon bg = new ImageIcon("images/bg.jpg");
-	private ImageIcon btnbg = new ImageIcon("images/btn.png");
-	private Toolkit toolkit = Toolkit.getDefaultToolkit();
-	private Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
-	
-	private JButton in = new JButton("",btnbg);
+	private final JButton in = new JButton("",btnbg);
 	//"进入系统"用背景图
 	
-	private JLabel bglabel = new JLabel();
+	private final JLabel bglabel = new JLabel();
 	
 	public LoginUi() {
 		con.setLayout(null);
@@ -52,13 +46,15 @@ public class LoginUi implements ActionListener{
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		con.setVisible(true);		
 		bglabel.setIcon(bg);
+
 		bglabel.setBounds(0, 0, 1000, 600);		
 		in.setBounds(425, 250, 150, 56);
-		
-		con.add(bglabel);
+
 		con.add(in);
+		con.add(bglabel);
+
 		
-	/*	if (!Util.getConnet()) {
+		/*	if (!Util.getConnet()) {
 			winMessage("服务端未开启，无法继续！");
 			return;
 		}*/
@@ -66,7 +62,8 @@ public class LoginUi implements ActionListener{
 		
 	}
 
-	public static void winMessage(String str) {// 提示窗口，有多个地方调用
+	public static void winMessage(String str) {
+		// 提示窗口，有多个地方调用
 		JOptionPane.showMessageDialog(null, str, "提示",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
@@ -81,36 +78,36 @@ public class LoginUi implements ActionListener{
 }
 
 class Login implements ActionListener {
-	private JFrame jf = new JFrame("电影购票系统");
-	private Container con = jf.getContentPane();// 获得面板
+	private final JFrame jf = new JFrame("电影购票系统");
+	private final Container con = jf.getContentPane();// 获得面板
 
-	private Toolkit toolkit = Toolkit.getDefaultToolkit();
-	private Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
-	private JLabel title = new JLabel("电影购票系统");
-	private JLabel name1 = new JLabel("用户名");
-	private JLabel pass1 = new JLabel("密  码");
-	private JTextField textName = new JTextField();
-	private JPasswordField textPs = new JPasswordField();// 密码框
+	private final Toolkit toolkit = Toolkit.getDefaultToolkit();
+	private final Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
+	private final JLabel title = new JLabel("电影购票系统");
+	private final JLabel name1 = new JLabel("用户名");
+	private final JLabel pass1 = new JLabel("密  码");
+	private final JTextField textName = new JTextField();
+	private final JPasswordField textPs = new JPasswordField();// 密码框
 
-	private JRadioButton choice1 = new JRadioButton("用户");
-	private JRadioButton choice2 = new JRadioButton("管理员");
+	private final JRadioButton choice1 = new JRadioButton("用户");
+	private final JRadioButton choice2 = new JRadioButton("管理员");
 
-	private JLabel code1 = new JLabel("验证码");
-	private JTextField textCode = new JTextField();
-	private JLabel code2 = new JLabel();
+	private final JLabel code1 = new JLabel("验证码");
+	private final JTextField textCode = new JTextField();
+	private final JLabel code2 = new JLabel();
 
-	private JButton button1 = new JButton("注册");
-	private JButton button2 = new JButton("登录");
+	private final JButton button1 = new JButton("注册");
+	private final JButton button2 = new JButton("登录");
 	// 按钮
 
-	private Font font = new Font("楷体", 1, 28);
-	private Font font1 = new Font("楷体", 0, 20);
-	private Font font2 = new Font("楷体", 0, 18);
+	private final Font font = new Font("楷体", 1, 28);
+	private final Font font1 = new Font("楷体", 0, 20);
+	private final Font font2 = new Font("楷体", 0, 18);
 	// 字体，样式（粗体，斜体），大小
 
-	private ButtonGroup buttongroup = new ButtonGroup();
+	private final ButtonGroup buttongroup = new ButtonGroup();
 
-	private ImageIcon loginbg = new ImageIcon("images/loginbg.jpg");
+	private final ImageIcon loginbg = new ImageIcon("images/loginbg.jpg");
 	
 	public Login() {
 		con.setLayout(null);
