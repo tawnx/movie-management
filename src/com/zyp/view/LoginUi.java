@@ -139,7 +139,7 @@ class Login implements ActionListener {
 
 		textPs.setBounds(200, 193, 140, 25);
 		textPs.setBorder(null);
-		textPs.setEchoChar('*');// 可以将密码显示为* ；默认为·
+		textPs.setEchoChar('*');// 可以将密码显示为* ；默认为..
 		textPs.setFont(font1);
 
 		choice1.setBounds(140, 290, 120, 25);
