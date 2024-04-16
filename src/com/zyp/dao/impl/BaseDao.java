@@ -9,12 +9,15 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class BaseDao {
 
 	public static final String DRIVER = "com.mysql.jdbc.Driver";
 	public static final String URL = "jdbc:mysql://118.31.245.202:3306/team_database?useUnicode=true&characterEncoding=utf-8";
+
+	public Connection conn = null;
 
 	// 加载驱动，只需加载一次
 	static {
@@ -29,9 +32,14 @@ public class BaseDao {
 
 	// 获得连接
 	public Connection getConn() {
-		Connection conn = null;
+		//Connection conn = null;
 		try {
-			conn = DriverManager.getConnection(URL, "croot", "croot");
+			if(this.conn==null||this.conn.isClosed()) {
+				//System.err.println("连接数据库");
+				conn = DriverManager.getConnection(URL, "croot", "croot");
+			}else{
+				//System.err.println("已经连接数据库");
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -50,7 +58,7 @@ public class BaseDao {
 				pstmt.close();
 			}
 			if (conn != null) {
-				conn.close();
+				//conn.close();
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -96,13 +104,20 @@ public class BaseDao {
 	}
 
 	public <T> List<T> operQuery(String sql, List<Object> params, Class<T> cls) throws Exception {
+		//System.out.println("开始："+System.currentTimeMillis());
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		List<T> list = new ArrayList<T>();
+		//System.out.println("连接："+System.currentTimeMillis());
 		conn = getConn();
+		//System.out.println("连接完成："+System.currentTimeMillis());
 
 		try {
+			//System.err.println(sql);
+
+			//System.err.println(new Date().getTime());
+
 			pstmt = conn.prepareStatement(sql);
 
 			if (params != null) {
@@ -114,6 +129,7 @@ public class BaseDao {
 
 			}
 			// 增刪改的統一方法
+
 
 			rs = pstmt.executeQuery();
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -130,8 +146,8 @@ public class BaseDao {
 					field = cls.getDeclaredField(col_name);
 
 					field.setAccessible(true);
-					System.err.println(value);
-					System.err.println(col_name);
+					//System.err.println(value);
+					//System.err.println(col_name);
 					if(col_name.equals("beginTime"))
 					{
 						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -150,6 +166,7 @@ public class BaseDao {
 		} finally {
 			releaseAll(rs, pstmt, conn);
 		}
+		//System.out.println("结束："+System.currentTimeMillis());
 		return list;
 
 	}
