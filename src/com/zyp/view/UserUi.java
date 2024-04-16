@@ -168,104 +168,7 @@ public class UserUi implements ActionListener {
 		tabbedPane.setTabLayoutPolicy(JTabbedPane.SCROLL_TAB_LAYOUT);// 每个选项卡滚动模式
 		con.add(tabbedPane);
 		// 用户信息
-		tabbedPane.addTab("欢迎您，" + user.getuName(), card0);
-		JLabel maxlabel = new JLabel();
-		
-		for (int i = 0; i < 2; i++) {
-			card0_label[i] = new JLabel();
-			maxlabel.add(card0_label[i]);
-			card0_label[i].setFont(font0);
-			card0_label[i].setBounds(40, 70 + (i * 50), 500, 50);
-		}
 
-		card0_label[0].setText("您的信息如下： ");
-		card0_label[0].setForeground(Color.gray);
-		card0_label[1].setText("用户名 : " + user.getuName()+"余额："+user.getBalance()+"元");
-		card0_label[1].setForeground(Color.gray);
-		updatepass.setBounds(40, 190, 120, 35);
-		updatepass.addActionListener(this);
-		updatepass.setBackground(Color.gray);
-		updatepass.setFont(font);
-		updatepass.setForeground(Color.white);
-		maxlabel.add(updatepass);
-		isrecharge=new JButton("充值金额");
-		isrecharge.setBounds(200, 190, 120, 35);
-		isrecharge.addActionListener(this);
-		isrecharge.setFont(font);
-		isrecharge.setForeground(Color.white);
-		isrecharge.setBackground(Color.gray);
-		maxlabel.add(isrecharge);
-		rechargeinfo=new JLabel("请输入金额");
-		rechargeinfo.setBounds(200, 250, 120, 30);
-		rechargeinfo.setFont(font);
-		rechargeinfo.setForeground(Color.LIGHT_GRAY);
-		rechargeinfo.setVisible(false);
-		maxlabel.add(rechargeinfo);
-		charge=new JTextField();
-		charge.setBounds(200, 300, 120, 30);
-		charge.setBackground(Color.GRAY);
-		charge.setFont(font);
-		charge.setForeground(Color.white);
-		charge.setFont(font);
-		charge.setVisible(false);
-		maxlabel.add(charge);
-		recharge=new JButton("充值");
-		recharge.setBounds(200, 380, 120, 30);
-		recharge.setForeground(Color.white);
-		recharge.setBackground(Color.GRAY);
-		recharge.setFont(font);
-		recharge.setVisible(false);
-		recharge.addActionListener(this);
-		maxlabel.add(recharge);
-		oldjl = new JLabel("原密码");
-		oldjl.setBounds(40, 250, 90, 30);
-		oldjl.setForeground(Color.LIGHT_GRAY);
-		oldjl.setFont(font);
-		oldjl.setVisible(false);
-		maxlabel.add(oldjl);
-
-		oldpass.setBounds(40, 280, 120, 30);
-		oldpass.setBackground(Color.GRAY);
-		oldpass.setFont(font);
-		oldpass.setForeground(Color.white);
-		oldpass.setEchoChar('*');
-		oldpass.setVisible(false);
-		maxlabel.add(oldpass);
-
-		newjl = new JLabel("新密码");
-		newjl.setBounds(40, 350, 90, 30);
-		newjl.setFont(font);
-		newjl.setForeground(Color.LIGHT_GRAY);
-		newjl.setVisible(false);
-		maxlabel.add(newjl);
-
-		newpass.setBounds(40, 380, 120, 30);
-		newpass.setBackground(Color.GRAY);
-		newpass.setForeground(Color.white);
-		newpass.setFont(font);
-		newpass.setEchoChar('*');
-		newpass.setVisible(false);
-		maxlabel.add(newpass);
-		// cancel取消
-		cancel.setBounds(40, 500, 120, 30);
-		maxlabel.add(cancel);
-		cancel.setBackground(Color.GRAY);
-		cancel.setForeground(Color.white);
-		cancel.setFont(font);
-		cancel.setVisible(false);
-		cancel.addActionListener(this);
-
-		confirmUp.setBounds(40, 445, 120, 30);
-		confirmUp.setBackground(Color.GRAY);
-		confirmUp.setForeground(Color.white);
-		confirmUp.setFont(font);
-		maxlabel.add(confirmUp);
-		confirmUp.setVisible(false);
-		confirmUp.addActionListener(this);
-
-		maxlabel.setIcon(userinfobg);
-		maxlabel.setBounds(0, 0, 1800, 1000);
-		card0.add(maxlabel);
 		// 热门电影
 		tabbedPane.addTab("热门电影", card1);
 		list = mo.OrderMovieTen();
@@ -680,6 +583,105 @@ public class UserUi implements ActionListener {
 		sPane3.setBounds(0, 0, 1627, 950);
 		sPane3.setVisible(true);
 		card5.add(sPane3);
+
+		tabbedPane.addTab("我的信息", card0);
+		JLabel maxlabel = new JLabel();
+
+		for (int i = 0; i < 2; i++) {
+			card0_label[i] = new JLabel();
+			maxlabel.add(card0_label[i]);
+			card0_label[i].setFont(font0);
+			card0_label[i].setBounds(40, 70 + (i * 50), 500, 50);
+		}
+
+		card0_label[0].setText("您的信息如下： ");
+		card0_label[0].setForeground(Color.gray);
+		card0_label[1].setText("用户名 : " + user.getuName()+"余额："+user.getBalance()+"元");
+		card0_label[1].setForeground(Color.gray);
+		updatepass.setBounds(40, 190, 120, 35);
+		updatepass.addActionListener(this);
+		updatepass.setBackground(Color.gray);
+		updatepass.setFont(font);
+		updatepass.setForeground(Color.white);
+		maxlabel.add(updatepass);
+		isrecharge=new JButton("充值金额");
+		isrecharge.setBounds(200, 190, 120, 35);
+		isrecharge.addActionListener(this);
+		isrecharge.setFont(font);
+		isrecharge.setForeground(Color.white);
+		isrecharge.setBackground(Color.gray);
+		maxlabel.add(isrecharge);
+		rechargeinfo=new JLabel("请输入金额");
+		rechargeinfo.setBounds(200, 250, 120, 30);
+		rechargeinfo.setFont(font);
+		rechargeinfo.setForeground(Color.LIGHT_GRAY);
+		rechargeinfo.setVisible(false);
+		maxlabel.add(rechargeinfo);
+		charge=new JTextField();
+		charge.setBounds(200, 300, 120, 30);
+		charge.setBackground(Color.GRAY);
+		charge.setFont(font);
+		charge.setForeground(Color.white);
+		charge.setFont(font);
+		charge.setVisible(false);
+		maxlabel.add(charge);
+		recharge=new JButton("充值");
+		recharge.setBounds(200, 380, 120, 30);
+		recharge.setForeground(Color.white);
+		recharge.setBackground(Color.GRAY);
+		recharge.setFont(font);
+		recharge.setVisible(false);
+		recharge.addActionListener(this);
+		maxlabel.add(recharge);
+		oldjl = new JLabel("原密码");
+		oldjl.setBounds(40, 250, 90, 30);
+		oldjl.setForeground(Color.LIGHT_GRAY);
+		oldjl.setFont(font);
+		oldjl.setVisible(false);
+		maxlabel.add(oldjl);
+
+		oldpass.setBounds(40, 280, 120, 30);
+		oldpass.setBackground(Color.GRAY);
+		oldpass.setFont(font);
+		oldpass.setForeground(Color.white);
+		oldpass.setEchoChar('*');
+		oldpass.setVisible(false);
+		maxlabel.add(oldpass);
+
+		newjl = new JLabel("新密码");
+		newjl.setBounds(40, 350, 90, 30);
+		newjl.setFont(font);
+		newjl.setForeground(Color.LIGHT_GRAY);
+		newjl.setVisible(false);
+		maxlabel.add(newjl);
+
+		newpass.setBounds(40, 380, 120, 30);
+		newpass.setBackground(Color.GRAY);
+		newpass.setForeground(Color.white);
+		newpass.setFont(font);
+		newpass.setEchoChar('*');
+		newpass.setVisible(false);
+		maxlabel.add(newpass);
+		// cancel取消
+		cancel.setBounds(40, 500, 120, 30);
+		maxlabel.add(cancel);
+		cancel.setBackground(Color.GRAY);
+		cancel.setForeground(Color.white);
+		cancel.setFont(font);
+		cancel.setVisible(false);
+		cancel.addActionListener(this);
+
+		confirmUp.setBounds(40, 445, 120, 30);
+		confirmUp.setBackground(Color.GRAY);
+		confirmUp.setForeground(Color.white);
+		confirmUp.setFont(font);
+		maxlabel.add(confirmUp);
+		confirmUp.setVisible(false);
+		confirmUp.addActionListener(this);
+
+		maxlabel.setIcon(userinfobg);
+		maxlabel.setBounds(0, 0, 1800, 1000);
+		card0.add(maxlabel);
 		
 		
 		tabbedPane.setBackground(Color.GRAY);	
