@@ -40,7 +40,7 @@ public class HallManage extends JInternalFrame {
 	private JTextField capacitytext;
     private List<Cinema> cinemalist;
     private List<Hall> halllist;
-    private Font font = new Font("楷体", 0, 20);
+    private Font font = new Font("Times New Roman", 0, 20);
     private CinemaService cinemaservice=new CinemaServiceImpl();
     private HallService hallservice=new HallServiceImpl();
     private SessionService sessionservice=new SessionServiceImpl();
@@ -73,51 +73,51 @@ public class HallManage extends JInternalFrame {
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		
-		JLabel lblNewLabel = new JLabel("Hall Name:");    //场厅名
-		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel lblNewLabel = new JLabel("Hall Name: ");    //场厅名
+		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		hallnametext = new JTextField();
-		hallnametext.setFont(new Font("楷体", Font.PLAIN, 20));
+		hallnametext.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		hallnametext.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("Cinema No:");  //影院编号
-		lblNewLabel_1.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel lblNewLabel_1 = new JLabel("Cinema No: ");  //影院编号
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		cIdtext = new JTextField();
-		cIdtext.setFont(new Font("楷体", Font.PLAIN, 20));
+		cIdtext.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cIdtext.setEditable(false);
 		cIdtext.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("Hall capacity:");  //场厅容量
-		lblNewLabel_2.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel lblNewLabel_2 = new JLabel("Hall capacity: ");  //场厅容量
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		capacitytext = new JTextField();
-		capacitytext.setFont(new Font("楷体", Font.PLAIN, 20));
+		capacitytext.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		capacitytext.setColumns(10);
 		
-		JButton addhallButton = new JButton("Adding a Hall");
+		JButton addhallButton = new JButton("Adding a Hall");// 添加场厅
 		addhallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addactionPerformed(e);
 			}
 		});
-		addhallButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		addhallButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
-		JButton updatehallButton = new JButton("Modify the venue hall");
+		JButton updatehallButton = new JButton("Modify the venue hall");// 修改场厅
 		updatehallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateactionPerformed(e);
 			}
 		});
-		updatehallButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		updatehallButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
-		JButton delhallButton = new JButton("Delete the venue");
+		JButton delhallButton = new JButton("Delete the venue");// 删除场厅
 		delhallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				delactionPerformed(e);
 			}
 		});
-		delhallButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		delhallButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -201,7 +201,7 @@ public class HallManage extends JInternalFrame {
 		cinematable.setDefaultRenderer(Object.class, r);
 		cinematable.setRowHeight(70);
 		cinematable.setFont(font);
-		cinematable.getTableHeader().setFont(new Font("楷体", 1, 20));
+		cinematable.getTableHeader().setFont(new Font("Times New Roman", 1, 20));
 		cinematable.getTableHeader().setBackground(Color.orange);
 		cinematable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
 		cinematable.getTableHeader().setResizingAllowed(false);
@@ -238,7 +238,7 @@ public class HallManage extends JInternalFrame {
 		halltable.setDefaultRenderer(Object.class, r);
 		halltable.setRowHeight(70);
 		halltable.setFont(font);
-		halltable.getTableHeader().setFont(new Font("楷体", 1, 20));
+		halltable.getTableHeader().setFont(new Font("Times New Roman", 1, 20));
 		halltable.getTableHeader().setBackground(Color.orange);
 		halltable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
 		halltable.getTableHeader().setResizingAllowed(false); // 不可拉动表格
