@@ -71,7 +71,7 @@ public class MovieDaoImpl extends BaseDao implements MovieDao {
 	@Override
 	public Movie queryMovieById(int mId) {
 		// TODO Auto-generated method stub
-		String sql ="select *from movie where mId="+mId;		
+		String sql ="select * from movie where mId="+mId;
 		List<Movie> list = null;
 		try {
 			list = operQuery(sql,null,Movie.class);			
