@@ -24,7 +24,7 @@ import com.zyp.service.UserService;
 import com.zyp.service.impl.UserServiceImpl;
 
 public class LoginUi implements ActionListener{
-	private final JFrame jf = new JFrame("Movie Ticketing System");
+	private final JFrame jf = new JFrame("Movie Ticketing System");// 电影购票系统
 	private final Container con = jf.getContentPane();// Acquire Panel
 
 	private final ImageIcon bg = new ImageIcon("images/bg.jpg");
@@ -78,31 +78,31 @@ public class LoginUi implements ActionListener{
 }
 
 class Login implements ActionListener {
-	private final JFrame jf = new JFrame("Movie Ticketing System");
+	private final JFrame jf = new JFrame("Movie Ticketing System");// 电影购票系统
 	private final Container con = jf.getContentPane();// Obtain Panel
 
 	private final Toolkit toolkit = Toolkit.getDefaultToolkit();
 	private final Dimension sc = toolkit.getScreenSize();// Obtain Screen Size
-	private final JLabel title = new JLabel("Movie Ticketing System");
-	private final JLabel name1 = new JLabel("User");
-	private final JLabel pass1 = new JLabel("Pass");
+	private final JLabel title = new JLabel("Movie Ticketing System");// 电影购票系统
+	private final JLabel name1 = new JLabel("User");// 账号
+	private final JLabel pass1 = new JLabel("Pass");// 密码
 	private final JTextField textName = new JTextField();
 	private final JPasswordField textPs = new JPasswordField();// Password Box
 
-	private final JRadioButton choice1 = new JRadioButton("User");
-	private final JRadioButton choice2 = new JRadioButton("Administrator");
+	private final JRadioButton choice1 = new JRadioButton("User");// 普通用户
+	private final JRadioButton choice2 = new JRadioButton("Administrator");// 管理员
 
-	private final JLabel code1 = new JLabel("CAPTCHA");
+	private final JLabel code1 = new JLabel("CAPTCHA");// 验证码
 	private final JTextField textCode = new JTextField();
 	private final JLabel code2 = new JLabel();
 
-	private final JButton button1 = new JButton("Register");
-	private final JButton button2 = new JButton("Login");
+	private final JButton button1 = new JButton("Register");// 注册
+	private final JButton button2 = new JButton("Login");// 登录
 	// 按钮
 
-	private final Font font = new Font("楷体", 1, 28);
-	private final Font font1 = new Font("楷体", 0, 20);
-	private final Font font2 = new Font("楷体", 0, 18);
+	private final Font font = new Font("Times New Roman", 1, 28);
+	private final Font font1 = new Font("Times New Roman", 0, 20);
+	private final Font font2 = new Font("Times New Roman", 0, 18);
 	// 字体，样式（粗体，斜体），大小
 
 	private final ButtonGroup buttongroup = new ButtonGroup();
@@ -211,7 +211,7 @@ class Login implements ActionListener {
 			String id = textName.getText();
 			String pswd = new String(textPs.getPassword());
 			if (id.equals("") || pswd.equals("")) {
-				LoginUi.winMessage("Account and password cannot be empty!");
+				LoginUi.winMessage("Account and password cannot be empty!");// 账号密码不能为空
 				cleanUserInfo();
 				this.code2.setText(code());
 			} else {
@@ -226,7 +226,7 @@ class Login implements ActionListener {
 					UserService userService = new UserServiceImpl();
 					User user = userService.login(new User(id, pswd, choice));
 					if (user == null) {
-						LoginUi.winMessage("Incorrect username or password! Login failed!");
+						LoginUi.winMessage("Incorrect username or password! Login failed!");// 账号或密码错误！登录失败！
 						cleanUserInfo();
 						this.code2.setText(code());
 					} else {
@@ -240,10 +240,10 @@ class Login implements ActionListener {
 							}
 							this.jf.dispose();
 						
-						LoginUi.winMessage("Login successful!");
+						LoginUi.winMessage("Login successful!");// 登录成功！
 					}
 				} else {
-					LoginUi.winMessage("Incorrect CAPTCHA!");
+					LoginUi.winMessage("Incorrect CAPTCHA!");// 验证码错误！
 					cleanUserInfo();// Consider not clearing the information
 					this.code2.setText(code());
 				}
