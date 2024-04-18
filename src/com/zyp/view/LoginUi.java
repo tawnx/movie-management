@@ -24,16 +24,16 @@ import com.zyp.service.UserService;
 import com.zyp.service.impl.UserServiceImpl;
 
 public class LoginUi implements ActionListener{
-	private final JFrame jf = new JFrame("电影购票系统");
-	private final Container con = jf.getContentPane();// 获得面板
+	private final JFrame jf = new JFrame("Movie Ticketing System");
+	private final Container con = jf.getContentPane();// Acquire Panel
 
 	private final ImageIcon bg = new ImageIcon("images/bg.jpg");
 	private final ImageIcon btnbg = new ImageIcon("images/btn.png");
 	private final Toolkit toolkit = Toolkit.getDefaultToolkit();
-	private final Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
+	private final Dimension sc = toolkit.getScreenSize();// Acquire Screen Size
 	
 	private final JButton in = new JButton("",btnbg);
-	//"进入系统"用背景图
+	//"Enter System" using background image
 	
 	private final JLabel bglabel = new JLabel();
 	
@@ -41,7 +41,7 @@ public class LoginUi implements ActionListener{
 		con.setLayout(null);
 		jf.setSize(1000, 600);
 		jf.setLocation((sc.width - 1000) / 2, (sc.height - 618) / 2);		
-		jf.setResizable(false);// 窗口大小不可变
+		jf.setResizable(false);// Window size is fixed
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		con.setVisible(true);		
@@ -63,8 +63,8 @@ public class LoginUi implements ActionListener{
 	}
 
 	public static void winMessage(String str) {
-		// 提示窗口，有多个地方调用
-		JOptionPane.showMessageDialog(null, str, "提示",
+		// Prompt window, called from multiple places
+		JOptionPane.showMessageDialog(null, str, "Prompt",
 				JOptionPane.INFORMATION_MESSAGE);
 	}
 
@@ -78,26 +78,26 @@ public class LoginUi implements ActionListener{
 }
 
 class Login implements ActionListener {
-	private final JFrame jf = new JFrame("电影购票系统");
-	private final Container con = jf.getContentPane();// 获得面板
+	private final JFrame jf = new JFrame("Movie Ticketing System");
+	private final Container con = jf.getContentPane();// Obtain Panel
 
 	private final Toolkit toolkit = Toolkit.getDefaultToolkit();
-	private final Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
-	private final JLabel title = new JLabel("电影购票系统");
-	private final JLabel name1 = new JLabel("用户名");
-	private final JLabel pass1 = new JLabel("密  码");
+	private final Dimension sc = toolkit.getScreenSize();// Obtain Screen Size
+	private final JLabel title = new JLabel("Movie Ticketing System");
+	private final JLabel name1 = new JLabel("User");
+	private final JLabel pass1 = new JLabel("Pass");
 	private final JTextField textName = new JTextField();
-	private final JPasswordField textPs = new JPasswordField();// 密码框
+	private final JPasswordField textPs = new JPasswordField();// Password Box
 
-	private final JRadioButton choice1 = new JRadioButton("用户");
-	private final JRadioButton choice2 = new JRadioButton("管理员");
+	private final JRadioButton choice1 = new JRadioButton("User");
+	private final JRadioButton choice2 = new JRadioButton("Administrator");
 
-	private final JLabel code1 = new JLabel("验证码");
+	private final JLabel code1 = new JLabel("CAPTCHA");
 	private final JTextField textCode = new JTextField();
 	private final JLabel code2 = new JLabel();
 
-	private final JButton button1 = new JButton("注册");
-	private final JButton button2 = new JButton("登录");
+	private final JButton button1 = new JButton("Register");
+	private final JButton button2 = new JButton("Login");
 	// 按钮
 
 	private final Font font = new Font("楷体", 1, 28);
@@ -114,7 +114,7 @@ class Login implements ActionListener {
 		jf.setSize(1000, 618);
 		jf.setLocation((sc.width - 1000) / 2, (sc.height - 618) / 2);
 
-		jf.setResizable(false);// 窗口大小不可变
+		jf.setResizable(false);// Window size is fixed
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		con.setVisible(true);
@@ -125,43 +125,43 @@ class Login implements ActionListener {
 		title.setFont(font);
 		title.setForeground(Color.black);
 
-		name1.setBounds(140, 140, 85, 30);// 账号的位置大小
-		name1.setFont(font1);// 字体
-		name1.setForeground(Color.black);// name1字的颜色
+		name1.setBounds(140, 140, 85, 30);// Position and size of the account
+		name1.setFont(font1);// Font
+		name1.setForeground(Color.black);// Color of "name1" text
 
-		pass1.setBounds(140, 190, 85, 30);// 密码的位置大小
+		pass1.setBounds(140, 190, 85, 30);// Position and size of the password
 		pass1.setForeground(Color.black);
 		pass1.setFont(font1);
 
 		textName.setBounds(200, 143, 140, 25);
-		textName.setBorder(null);// 边框
+		textName.setBorder(null);// Border
 		textName.setFont(font1);
 
 		textPs.setBounds(200, 193, 140, 25);
 		textPs.setBorder(null);
-		textPs.setEchoChar('*');// 可以将密码显示为* ；默认为..
+		textPs.setEchoChar('*');// Passwords can be displayed as *; Default is ..
 		textPs.setFont(font1);
 
 		choice1.setBounds(140, 290, 120, 25);
-		choice1.setSelected(true);// 默认普通用户登录
-		choice2.setBounds(260, 290, 80, 25);
+		choice1.setSelected(true);// Default login as a regular user
+		choice2.setBounds(260, 290, 120, 25);
 
-		code1.setBounds(140, 240, 60, 25);
+		code1.setBounds(140, 240, 100, 25);
 		code1.setFont(font1);
 		code1.setForeground(Color.black);
-		textCode.setBounds(200, 240, 95, 25);
+		textCode.setBounds(220, 240, 95, 25);
 		textCode.setBorder(null);
 		textCode.setFont(font1);
-		code2.setBounds(300, 240, 70, 25);
+		code2.setBounds(320, 240, 70, 25);
 		code2.setFont(font1);
 		code2.setText(code());
 		code2.setForeground(Color.black);
 
-		button1.setBounds(140, 340, 90, 25);
+		button1.setBounds(140, 340, 110, 25);
 		button1.setFont(font2);
 		button1.addActionListener(this);
 
-		button2.setBounds(250, 340, 90, 25);
+		button2.setBounds(270, 340, 110, 25);
 		button2.setFont(font2);
 		button2.addActionListener(this);
 
@@ -211,7 +211,7 @@ class Login implements ActionListener {
 			String id = textName.getText();
 			String pswd = new String(textPs.getPassword());
 			if (id.equals("") || pswd.equals("")) {
-				LoginUi.winMessage("账号、密码不能为空！");
+				LoginUi.winMessage("Account and password cannot be empty!");
 				cleanUserInfo();
 				this.code2.setText(code());
 			} else {
@@ -226,7 +226,7 @@ class Login implements ActionListener {
 					UserService userService = new UserServiceImpl();
 					User user = userService.login(new User(id, pswd, choice));
 					if (user == null) {
-						LoginUi.winMessage("用户名或密码不正确！登录失败！");
+						LoginUi.winMessage("Incorrect username or password! Login failed!");
 						cleanUserInfo();
 						this.code2.setText(code());
 					} else {
@@ -240,17 +240,17 @@ class Login implements ActionListener {
 							}
 							this.jf.dispose();
 						
-						LoginUi.winMessage("登录成功！");
+						LoginUi.winMessage("Login successful!");
 					}
 				} else {
-					LoginUi.winMessage("验证码不正确！");
-					cleanUserInfo();// 可以考虑不清空信息
+					LoginUi.winMessage("Incorrect CAPTCHA!");
+					cleanUserInfo();// Consider not clearing the information
 					this.code2.setText(code());
 				}
 			}
 		} else if (ac.getSource() == this.button1) {
 			new RegisterUi();
-			this.jf.dispose();// 点击按钮时,new一个frame，原先frame销毁
+			this.jf.dispose();// When clicking the button, create a new frame, destroy the original frame
 		}	
 	}
 }
