@@ -73,14 +73,14 @@ public class HallManage extends JInternalFrame {
 		
 		JScrollPane scrollPane_1 = new JScrollPane();
 		
-		JLabel lblNewLabel = new JLabel("大厅名字:");
+		JLabel lblNewLabel = new JLabel("Hall Name:");    //场厅名
 		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		hallnametext = new JTextField();
 		hallnametext.setFont(new Font("楷体", Font.PLAIN, 20));
 		hallnametext.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("影院编号:");
+		JLabel lblNewLabel_1 = new JLabel("Cinema No:");  //影院编号
 		lblNewLabel_1.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		cIdtext = new JTextField();
@@ -88,14 +88,14 @@ public class HallManage extends JInternalFrame {
 		cIdtext.setEditable(false);
 		cIdtext.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("场厅容量:");
+		JLabel lblNewLabel_2 = new JLabel("Hall capacity:");  //场厅容量
 		lblNewLabel_2.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		capacitytext = new JTextField();
 		capacitytext.setFont(new Font("楷体", Font.PLAIN, 20));
 		capacitytext.setColumns(10);
 		
-		JButton addhallButton = new JButton("添加场厅");
+		JButton addhallButton = new JButton("Adding a Hall");
 		addhallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addactionPerformed(e);
@@ -103,7 +103,7 @@ public class HallManage extends JInternalFrame {
 		});
 		addhallButton.setFont(new Font("楷体", Font.PLAIN, 20));
 		
-		JButton updatehallButton = new JButton("修改场厅");
+		JButton updatehallButton = new JButton("Modify the venue hall");
 		updatehallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				updateactionPerformed(e);
@@ -111,7 +111,7 @@ public class HallManage extends JInternalFrame {
 		});
 		updatehallButton.setFont(new Font("楷体", Font.PLAIN, 20));
 		
-		JButton delhallButton = new JButton("删除场厅");
+		JButton delhallButton = new JButton("Delete the venue");
 		delhallButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				delactionPerformed(e);
@@ -183,7 +183,7 @@ public class HallManage extends JInternalFrame {
 					new Object[][] {
 					},
 					new String[] {
-						"影院编号", "影院名", "影院地址"
+						"Hall number", "Hall Name", "Cinema address"  //场厅编号，场厅名，影院地址
 					}
 				) {
 					boolean[] columnEditables = new boolean[] {
@@ -221,7 +221,7 @@ public class HallManage extends JInternalFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"场厅编号", "场厅名", "影院编号","场厅容量"
+					"Hall number", "Hall Name", "Cinema number","Hall capacity"  //场厅编号，场厅名，影院编号，场厅容量
 				}
 			) {
 				boolean[] columnEditables = new boolean[] {
@@ -267,21 +267,21 @@ public class HallManage extends JInternalFrame {
 						if(sessionservice.querySessionByHid(halllist.get(halrow).gethId()).size()==0) {
 						halllist.get(halrow).sethName(hName);
 						if(hallservice.delHall(halllist.get(halrow).gethId())) {
-							JOptionPane.showMessageDialog(null, "删除成功");
+							JOptionPane.showMessageDialog(null, "Delete successfully");  //删除成功
 							halllist.remove(halrow);
 							fillhalltableTable(halllist);
 						}
 						}else {
-							JOptionPane.showMessageDialog(null, "该场厅有场次，无法删除");
+							JOptionPane.showMessageDialog(null, "This hall has sessions and cannot be deleted"); //此场厅有场次，不能删除
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "不存在此影院");
+						JOptionPane.showMessageDialog(null, "This cinema does not exist"); //不存在此影院
 					}
 					
 				}
 				
 			}catch (NumberFormatException e2) {
-				JOptionPane.showMessageDialog(null, "格式错误");
+				JOptionPane.showMessageDialog(null, "Format error"); //格式错误
 			}
 		}
 	}
@@ -299,17 +299,17 @@ public class HallManage extends JInternalFrame {
 					if(cinemaservice.queryCinemaById(cId)!=null) {
 						halllist.get(halrow).sethName(hName);
 						if(hallservice.updateHall(halllist.get(halrow))) {
-							JOptionPane.showMessageDialog(null, "修改成功");
+							JOptionPane.showMessageDialog(null, "Modified successfully"); // 修改成功
 							fillhalltableTable(halllist);
 						}
 					}else {
-						JOptionPane.showMessageDialog(null, "不存在此影院");
+						JOptionPane.showMessageDialog(null, "This cinema does not exist"); //不存在此影院
 					}
 					
 				}
 				
 			}catch (NumberFormatException e2) {
-				JOptionPane.showMessageDialog(null, "格式错误");
+				JOptionPane.showMessageDialog(null, "Format Error"); //格式错误
 			}
 			}
 	}
@@ -325,18 +325,18 @@ public class HallManage extends JInternalFrame {
 				Hall hall=new Hall(cName,cId,capacity);
 				int judge=hallservice.addHall(hall);
 				if(judge==1) {
-					JOptionPane.showMessageDialog(null, "添加场厅成功");
+					JOptionPane.showMessageDialog(null, "Successfully added the venue");  //添加场厅成功
 					halllist=hallservice.queryAllHallcId(cId);
 					
 					fillhalltableTable(halllist);
 				}else if(judge==2) {
-					JOptionPane.showMessageDialog(null, "添加场厅失败");
+					JOptionPane.showMessageDialog(null, "Adding hall failed");  //添加场厅失败
 				}else {
-					JOptionPane.showMessageDialog(null, "已存在此场厅");
+					JOptionPane.showMessageDialog(null, "This venue already exists");  //此场厅已存在
 				}
 			} catch (NumberFormatException e2) {
 				// TODO: handle exception
-				JOptionPane.showMessageDialog(null, "输入格式错误");
+				JOptionPane.showMessageDialog(null, "Input format error"); //输入格式错误
 			}
 		}
 		
@@ -394,15 +394,15 @@ public class HallManage extends JInternalFrame {
 	}
 	public boolean judge() {
 		if("".equals(hallnametext.getText())) {
-			JOptionPane.showMessageDialog(null, "场厅名不能为空");
+			JOptionPane.showMessageDialog(null, "The venue name cannot be empty");  //场厅名不能为空
 			return false;
 		}
 		if("".equals(cIdtext.getText())) {
-			JOptionPane.showMessageDialog(null, "影院编号不能为空");
+			JOptionPane.showMessageDialog(null, "The cinema number cannot be empty"); //影院编号不能为空
 			return false;
 		}
 		if("".equals(capacitytext.getText())) {
-			JOptionPane.showMessageDialog(null, "场厅容量不能为空");
+			JOptionPane.showMessageDialog(null, "The capacity of the venue cannot be empty");  //场厅容量不能为空
 			return false;
 		}
 		return true;
