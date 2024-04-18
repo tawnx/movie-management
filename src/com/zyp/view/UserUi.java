@@ -81,18 +81,18 @@ public class UserUi implements ActionListener {
 	private JLabel card5 = new JLabel();//爱情
 	/*private JLabel card6 = new JLabel();//剧情
 	private JLabel card7 = new JLabel();//动漫
-*/	private JFrame jf = new JFrame("电影购票系统");
+*/	private JFrame jf = new JFrame("Movie Management System");
 	private JMenuBar menuBar = new JMenuBar();
 	private Container con = jf.getContentPane();// 获得面板
 	private JPasswordField oldpass = new JPasswordField();
 	private JPasswordField newpass = new JPasswordField();
-	private JButton jupdatere=new JButton("更改评论");
-	private JButton jreport=new JButton("发表");
-	private JButton reFresh = new JButton("刷新");
-	private JButton btnexit = new JButton("退出");//
-	private JButton updatepass = new JButton("修改密码");
-	private JButton confirmUp = new JButton("确定");
-	private JButton cancel = new JButton("取消");
+	private JButton jupdatere=new JButton("Update");
+	private JButton jreport=new JButton("Post");
+	private JButton reFresh = new JButton("Refresh");
+	private JButton btnexit = new JButton("Quit");//
+	private JButton updatepass = new JButton("Change Password");
+	private JButton confirmUp = new JButton("Confirm");
+	private JButton cancel = new JButton("Cancel");
 	private JLabel oldjl;
 	private JLabel newjl;
 	private JTable ticktb;
@@ -113,9 +113,9 @@ public class UserUi implements ActionListener {
 	private JLabel movielocality_language;
 	private JLabel movietype_grade;
 	private JTextField jsearch_nametext=new JTextField();	
-	private JButton jsearch_jbutton=new JButton("搜索电影");
+	private JButton jsearch_jbutton=new JButton("Search");
 	
-	//评分前十
+	//Rating前十
 	private JLabel[][] btn_label;
 	private JButton[] card1_btn;
 	private JLabel[][] dname;
@@ -171,7 +171,7 @@ public class UserUi implements ActionListener {
 		// 用户信息
 
 		// 热门电影
-		tabbedPane.addTab("热门电影", card1);
+		tabbedPane.addTab("Popular", card1);
 		list = mo.OrderMovieTen();
 		int row = (list.size() + 3) / 4;
 		int k = list.size();
@@ -204,16 +204,16 @@ public class UserUi implements ActionListener {
 				card1_btn[x].setText(list.get(x).getmId()+"");
 				card1_btn[x].setBounds(0, 0, 400, 500);
 				card1_btn[x].addActionListener(this);
-				dname[i][j] = new JLabel("片名：" + list.get(x).getmName()+"   评分："+list.get(x).getmGrade());
+				dname[i][j] = new JLabel("Title：" + list.get(x).getmName()+"   Rating："+list.get(x).getmGrade());
 				dname[i][j].setBounds(0, 510, 400, 30);
 				dname[i][j].setFont(font);
 
 				locality_language[i][j] = new JLabel(
-						"地区：" + list.get(x).getMlocality() + "  语言：" + list.get(x).getMlanguage());
+						"Region：" + list.get(x).getMlocality() + "  Language：" + list.get(x).getMlanguage());
 				locality_language[i][j].setBounds(0, 540, 400, 30);
 				locality_language[i][j].setFont(font1);
 				type_grade[i][j] = new JLabel(
-						"类型:" + (list.get(x).getmType()) + "   " + "时长 :" + list.get(x).getmDuration() + "分钟"); 
+						"Genre:" + (list.get(x).getmType()) + "   " + "Duration :" + list.get(x).getmDuration() + "minutes");
 																												
 																												
 				type_grade[i][j].setBounds(0, 570, 400, 30);
@@ -242,7 +242,7 @@ public class UserUi implements ActionListener {
 		sPane.setBounds(0, 0, 1627, 950);
 		sPane.setVisible(true);
 		card1.add(sPane);
-		tabbedPane.addTab("我的影票", card8);
+		tabbedPane.addTab("My Ticket", card8);
 		jupdatere.setBounds(850, 80, 150, 50);
 		jupdatere.setFont(font);
 		card8.add(jupdatere);
@@ -251,11 +251,11 @@ public class UserUi implements ActionListener {
 		jreport.setFont(font);
 		jreport.addActionListener(this);
 		card8.add(jreport);
-		jIscomment.setText("您的评论");
+		jIscomment.setText("Comments");
 		jIscomment.setFont(font0);
 		jIscomment.setBounds(400, 50, 300, 200);
 		card8.add(jIscomment);
-		delTicket=new JButton("退订");
+		delTicket=new JButton("Delete");
 		delTicket.setFont(font);
 		delTicket.setBounds(1400, 350, 100, 50);
 		delTicket.addActionListener(this);
@@ -299,7 +299,7 @@ public class UserUi implements ActionListener {
 				new Object[][] {
 				},
 				new String[] {
-					"影票编号", "用户名", "影院名称","影院地址","场厅名字","电影名称","开始时间","价格","座位号"
+					"Number", "User", "Cinema Name","Cinema Address","Hall","Moive Title","Start Time","Price","Seat Number"
 				}
 			) {
 				boolean[] columnEditables = new boolean[] {
@@ -330,7 +330,7 @@ public class UserUi implements ActionListener {
 		ticsPane.setBounds(0, 420, 1800, 480);
 		
 		card8.add(ticsPane);
-		tabbedPane.addTab("查找电影", card2);
+		tabbedPane.addTab("Search", card2);
 		jsearch_jbutton.setBounds(400,450,150,40);
 		jsearch_jbutton.setFont(font);
 		jsearch_jbutton.addActionListener(this);
@@ -364,9 +364,9 @@ public class UserUi implements ActionListener {
 		moviecard1_btn.addActionListener(this);
 		if(movielist.size()!=0) {
 			moviecard1_btn.setIcon(new ImageIcon(movielist.get(0).getmPicaddress()));
-			moviename.setText("片名：" +movielist.get(0).getmName()+"   评分："+movielist.get(0).getmGrade());
-			movielocality_language.setText("地区：" + movielist.get(0).getMlocality() + "  语言：" + movielist.get(0).getMlanguage());
-			movietype_grade.setText("类型:" + (movielist.get(0).getmType()) + "   " + "时长 :" + movielist.get(0).getmDuration() + "分钟");
+			moviename.setText("Title：" +movielist.get(0).getmName()+"   Rating："+movielist.get(0).getmGrade());
+			movielocality_language.setText("Region：" + movielist.get(0).getMlocality() + "  Language：" + movielist.get(0).getMlanguage());
+			movietype_grade.setText("Genre:" + (movielist.get(0).getmType()) + "   " + "Duration :" + movielist.get(0).getmDuration() + "minutes");
 		}
 		movietb=new JTable(){
 			  public boolean isCellEditable( int row, int column) {
@@ -378,7 +378,7 @@ public class UserUi implements ActionListener {
 				new Object[][] {
 				},
 				new String[] {
-					"电影编号", "电影名字", "语言", " 地区","时长","类别","分数"
+					"Number", "Title", "Language", " Region","Duration","Genre","Rating"
 				}
 			) {
 				boolean[] columnEditables = new boolean[] {
@@ -406,8 +406,8 @@ public class UserUi implements ActionListener {
       moviesPane.setBounds(0, 510, 1800, 450);
 		card2.add(moviesPane);
 		//科幻电影
-		tabbedPane.addTab("科幻", card3);				
-		sciencelist=mo.queryMovieByType("科幻");
+		tabbedPane.addTab("Sci-Fi", card3);
+		sciencelist=mo.queryMovieByType("sci-fi");
 		int row1 = (sciencelist.size() + 3) / 4;
 		int k1 = sciencelist.size();
 		 btn_label1 = new JLabel[row1][4];
@@ -433,15 +433,15 @@ public class UserUi implements ActionListener {
 				card1_btn1[x1].setText(sciencelist.get(x1).getmId()+"");
 				card1_btn1[x1].setBounds(0, 0, 400, 500);
 				card1_btn1[x1].addActionListener(this);
-				dname1[i][j] = new JLabel("片名：" + sciencelist.get(x1).getmName()+"   评分："+sciencelist.get(x1).getmGrade());
+				dname1[i][j] = new JLabel("Title：" + sciencelist.get(x1).getmName()+"   Rating："+sciencelist.get(x1).getmGrade());
 				dname1[i][j].setBounds(0, 510, 400, 30);
 				dname1[i][j].setFont(font);
 				locality_language1[i][j] = new JLabel(
-						"地区：" + sciencelist.get(x1).getMlocality() + "  语言：" + sciencelist.get(x1).getMlanguage());
+						"Region：" + sciencelist.get(x1).getMlocality() + "  Language：" + sciencelist.get(x1).getMlanguage());
 				locality_language1[i][j].setBounds(0, 540, 400, 30);
 				locality_language1[i][j].setFont(font1);
 				type_grade1[i][j] = new JLabel(
-						"类型:" + (sciencelist.get(x1).getmType()) + "   " + "时长 :" + sciencelist.get(x1).getmDuration() + "分钟"); 
+						"Genre:" + (sciencelist.get(x1).getmType()) + "   " + "Duration :" + sciencelist.get(x1).getmDuration() + "minutes"); 
 				type_grade1[i][j].setBounds(0, 570, 400, 30);
 				type_grade1[i][j].setFont(font2);
 				btn_label1[i][j] = new JLabel();
@@ -465,8 +465,8 @@ public class UserUi implements ActionListener {
 		sPane1.setVisible(true);
 		card3.add(sPane1);
 		//动作
-		tabbedPane.addTab("动作", card4);	
-		actionlist=mo.queryMovieByType("动作");
+		tabbedPane.addTab("Action", card4);
+		actionlist=mo.queryMovieByType("Action");
 		int row2 = (actionlist.size() + 3) / 4;
 		int k2 = actionlist.size();
 		btn_label2 = new JLabel[row2][4];
@@ -493,15 +493,15 @@ public class UserUi implements ActionListener {
 					card1_btn2[x2].setText(actionlist.get(x2).getmId()+"");
 					card1_btn2[x2].setBounds(0, 0, 400, 500);
 					card1_btn2[x2].addActionListener(this);
-					dname2[i][j] = new JLabel("片名：" + actionlist.get(x2).getmName()+"   评分："+actionlist.get(x2).getmGrade());
+					dname2[i][j] = new JLabel("Title：" + actionlist.get(x2).getmName()+"   Rating："+actionlist.get(x2).getmGrade());
 					dname2[i][j].setBounds(0, 510, 400, 30);
 					dname2[i][j].setFont(font);
 					locality_language2[i][j] = new JLabel(
-							"地区：" + actionlist.get(x2).getMlocality() + "  语言：" + actionlist.get(x2).getMlanguage());
+							"Region：" + actionlist.get(x2).getMlocality() + "  Language：" + actionlist.get(x2).getMlanguage());
 					locality_language2[i][j].setBounds(0, 540, 400, 30);
 					locality_language2[i][j].setFont(font1);
 					type_grade2[i][j] = new JLabel(
-							"类型:" + (actionlist.get(x2).getmType()) + "   " + "时长 :" + actionlist.get(x2).getmDuration() + "分钟"); 
+							"Genre:" + (actionlist.get(x2).getmType()) + "   " + "Duration :" + actionlist.get(x2).getmDuration() + "minutes"); 
 					type_grade2[i][j].setBounds(0, 570, 400, 30);
 					type_grade2[i][j].setFont(font2);
 					btn_label2[i][j] = new JLabel();
@@ -524,8 +524,8 @@ public class UserUi implements ActionListener {
 			sPane2.setBounds(0, 0, 1627, 950);
 			sPane2.setVisible(true);
 			card4.add(sPane2);
-		tabbedPane.addTab("爱情", card5);
-		lovelist=mo.queryMovieByType("爱情");
+		tabbedPane.addTab("Love", card5);
+		lovelist=mo.queryMovieByType("Love");
 		int row3 = (lovelist.size() + 3) / 4;
 		int k3 = lovelist.size();
 		 btn_label3 = new JLabel[row3][4];
@@ -551,15 +551,15 @@ public class UserUi implements ActionListener {
 				card1_btn3[x3].setText(lovelist.get(x3).getmId()+"");
 				card1_btn3[x3].setBounds(0, 0, 400, 500);
 				card1_btn3[x3].addActionListener(this);
-				dname3[i][j] = new JLabel("片名：" + lovelist.get(x3).getmName()+"   评分："+lovelist.get(x3).getmGrade());
+				dname3[i][j] = new JLabel("Title：" + lovelist.get(x3).getmName()+"   Rating："+lovelist.get(x3).getmGrade());
 				dname3[i][j].setBounds(0, 510, 400, 30);
 				dname3[i][j].setFont(font);
 				locality_language3[i][j] = new JLabel(
-						"地区：" + lovelist.get(x3).getMlocality() + "  语言：" + lovelist.get(x3).getMlanguage());
+						"Region：" + lovelist.get(x3).getMlocality() + "  Language：" + lovelist.get(x3).getMlanguage());
 				locality_language3[i][j].setBounds(0, 540, 400, 30);
 				locality_language3[i][j].setFont(font1);
 				type_grade3[i][j] = new JLabel(
-						"类型:" + (lovelist.get(x3).getmType()) + "   " + "时长 :" + lovelist.get(x3).getmDuration() + "分钟"); 
+						"Genre:" + (lovelist.get(x3).getmType()) + "   " + "Duration :" + lovelist.get(x3).getmDuration() + "minutes"); 
 				type_grade3[i][j].setBounds(0, 570, 400, 30);
 				type_grade3[i][j].setFont(font2);
 				btn_label3[i][j] = new JLabel();
@@ -585,7 +585,7 @@ public class UserUi implements ActionListener {
 		sPane3.setVisible(true);
 		card5.add(sPane3);
 
-		tabbedPane.addTab("我的信息", card0);
+		tabbedPane.addTab("Me", card0);
 		JLabel maxlabel = new JLabel();
 
 		for (int i = 0; i < 2; i++) {
@@ -595,9 +595,9 @@ public class UserUi implements ActionListener {
 			card0_label[i].setBounds(40, 70 + (i * 50), 500, 50);
 		}
 
-		card0_label[0].setText("您的信息如下： ");
+		card0_label[0].setText("Your Information： ");
 		card0_label[0].setForeground(Color.gray);
-		card0_label[1].setText("用户名 : " + user.getuName()+"余额："+user.getBalance()+"元");
+		card0_label[1].setText("Username: " + user.getuName()+"Balance："+user.getBalance()+"Yuan");
 		card0_label[1].setForeground(Color.gray);
 		updatepass.setBounds(40, 190, 120, 35);
 		updatepass.addActionListener(this);
@@ -605,14 +605,14 @@ public class UserUi implements ActionListener {
 		updatepass.setFont(font);
 		updatepass.setForeground(Color.white);
 		maxlabel.add(updatepass);
-		isrecharge=new JButton("充值金额");
+		isrecharge=new JButton("Recharge amount");
 		isrecharge.setBounds(200, 190, 120, 35);
 		isrecharge.addActionListener(this);
 		isrecharge.setFont(font);
 		isrecharge.setForeground(Color.white);
 		isrecharge.setBackground(Color.gray);
 		maxlabel.add(isrecharge);
-		rechargeinfo=new JLabel("请输入金额");
+		rechargeinfo=new JLabel("Please enter amount");
 		rechargeinfo.setBounds(200, 250, 120, 30);
 		rechargeinfo.setFont(font);
 		rechargeinfo.setForeground(Color.LIGHT_GRAY);
@@ -626,7 +626,7 @@ public class UserUi implements ActionListener {
 		charge.setFont(font);
 		charge.setVisible(false);
 		maxlabel.add(charge);
-		recharge=new JButton("充值");
+		recharge=new JButton("Recharge");
 		recharge.setBounds(200, 380, 120, 30);
 		recharge.setForeground(Color.white);
 		recharge.setBackground(Color.GRAY);
@@ -634,7 +634,7 @@ public class UserUi implements ActionListener {
 		recharge.setVisible(false);
 		recharge.addActionListener(this);
 		maxlabel.add(recharge);
-		oldjl = new JLabel("原密码");
+		oldjl = new JLabel("Old Password");
 		oldjl.setBounds(40, 250, 90, 30);
 		oldjl.setForeground(Color.LIGHT_GRAY);
 		oldjl.setFont(font);
@@ -649,7 +649,7 @@ public class UserUi implements ActionListener {
 		oldpass.setVisible(false);
 		maxlabel.add(oldpass);
 
-		newjl = new JLabel("新密码");
+		newjl = new JLabel("New Password");
 		newjl.setBounds(40, 350, 90, 30);
 		newjl.setFont(font);
 		newjl.setForeground(Color.LIGHT_GRAY);
@@ -726,9 +726,9 @@ public class UserUi implements ActionListener {
 		row1=movietb.getSelectedRow();
 		if(row1!=-1) {
 			moviecard1_btn.setIcon(new ImageIcon(movielist.get(row1).getmPicaddress()));
-			moviename.setText("片名：" +movielist.get(row1).getmName()+"   评分："+movielist.get(row1).getmGrade());
-			movielocality_language.setText("地区：" + movielist.get(row1).getMlocality() + "  语言：" + movielist.get(row1).getMlanguage());
-			movietype_grade.setText("类型:" + (movielist.get(row1).getmType()) + "   " + "时长 :" + movielist.get(row1).getmDuration() + "分钟");	
+			moviename.setText("Title：" +movielist.get(row1).getmName()+"   Rating："+movielist.get(row1).getmGrade());
+			movielocality_language.setText("Region：" + movielist.get(row1).getMlocality() + "  Language：" + movielist.get(row1).getMlanguage());
+			movietype_grade.setText("Genre:" + (movielist.get(row1).getmType()) + "   " + "Duration :" + movielist.get(row1).getmDuration() + "minutes");	
 		}
 	}
 
@@ -769,10 +769,10 @@ public class UserUi implements ActionListener {
 				jcommentcontent.setText(ccomment.getComment());
 				jcommentcontent.setLineWrap(true);
 				jcommentcontent.setEditable(false);
-				jIscomment.setText("您已评论");
+				jIscomment.setText("You have commented");
 			}else {
 				jcommentcontent.setEditable(true);
-				jIscomment.setText("您还未评论");
+				jIscomment.setText("You have not commented");
 				jcommentcontent.setText("");
 			}
 		}
@@ -820,7 +820,6 @@ public class UserUi implements ActionListener {
 			
 			movielist=mo.queryMovieBymovieName(jsearch_nametext.getText());
 			if(movielist!=null) {
-				
 			fillTable(movielist);
 			}
 		}
