@@ -61,15 +61,15 @@ public class AdminUi extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mnNewMenu = new JMenu("管理员功能");
+		JMenu mnNewMenu = new JMenu("Administrator Functions");//管理员功能
 		mnNewMenu.setFont(new Font("楷体", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu);
 		
-		JMenu moviemanageMenu = new JMenu("电影管理");
+		JMenu moviemanageMenu = new JMenu("Movie Management");//电影管理
 		moviemanageMenu.setFont(new Font("楷体", Font.PLAIN, 20));
 		mnNewMenu.add(moviemanageMenu);
 		
-		JMenuItem addmovieMenuItem = new JMenuItem("电影添加");
+		JMenuItem addmovieMenuItem = new JMenuItem("Add Movie");//电影添加
 		addmovieMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addMovieactionPerformed(e);
@@ -78,7 +78,7 @@ public class AdminUi extends JFrame {
 		addmovieMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		moviemanageMenu.add(addmovieMenuItem);
 		
-		JMenuItem movieMenuItem = new JMenuItem("电影维护");
+		JMenuItem movieMenuItem = new JMenuItem("Movie Maintenance");//电影维护
 		movieMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				mmoviemanageActionPerformed(e);
@@ -87,11 +87,11 @@ public class AdminUi extends JFrame {
 		movieMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		moviemanageMenu.add(movieMenuItem);
 		
-		JMenu cinemamanageMenu = new JMenu("影院管理");
+		JMenu cinemamanageMenu = new JMenu("Theater Management");//影院管理
 		cinemamanageMenu.setFont(new Font("楷体", Font.PLAIN, 20));
 		mnNewMenu.add(cinemamanageMenu);
 		
-		JMenuItem addcinemaMenuItem = new JMenuItem("影院维护");
+		JMenuItem addcinemaMenuItem = new JMenuItem("Theater Maintenance");//影院维护
 		addcinemaMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cinemaactionPerformed(e);
@@ -100,7 +100,7 @@ public class AdminUi extends JFrame {
 		addcinemaMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		cinemamanageMenu.add(addcinemaMenuItem);
 		
-		JMenuItem addhallMenuItem = new JMenuItem("场厅维护");
+		JMenuItem addhallMenuItem = new JMenuItem("Auditorium Maintenance");//场厅维护
 		addhallMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				hallmanageactionPerformed(e);
@@ -109,11 +109,11 @@ public class AdminUi extends JFrame {
 		addhallMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		cinemamanageMenu.add(addhallMenuItem);
 		
-		JMenu sessionMenu = new JMenu("场次管理");
+		JMenu sessionMenu = new JMenu("Session Management");//场次管理
 		sessionMenu.setFont(new Font("楷体", Font.PLAIN, 20));
 		mnNewMenu.add(sessionMenu);
 		
-		JMenuItem addsessionMenuItem = new JMenuItem("场次添加");
+		JMenuItem addsessionMenuItem = new JMenuItem("Add Session");//场次添加
 		addsessionMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addsessionActionPerformed(e);
@@ -122,7 +122,7 @@ public class AdminUi extends JFrame {
 		addsessionMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		sessionMenu.add(addsessionMenuItem);
 		
-		JMenuItem sessionMenuItem = new JMenuItem("场次维护");
+		JMenuItem sessionMenuItem = new JMenuItem("Session Maintenance");//场次维护
 		sessionMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -134,7 +134,7 @@ public class AdminUi extends JFrame {
 		sessionMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
 		sessionMenu.add(sessionMenuItem);
 		
-		JMenuItem TicketMenuItem = new JMenuItem("影票管理");
+		JMenuItem TicketMenuItem = new JMenuItem("Ticket Management");//影票管理
 		TicketMenuItem.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				TicketManager ticketManager=new TicketManager();
@@ -169,10 +169,10 @@ public class AdminUi extends JFrame {
 					.addContainerGap())
 		);
 		
-		JLabel lblNewLabel = new JLabel("欢迎使用影票管理系统");
+		JLabel lblNewLabel = new JLabel("Welcome to the Movie Ticket Management System");//欢迎使用影票管理系统
 		/*lblNewLabel.setForeground(Color.WHITE);*/
 		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 30));
-		lblNewLabel.setBounds(862, 111, 402, 54);
+		lblNewLabel.setBounds(862, 111, 800, 54);
 		tablePane.add(lblNewLabel);
 		
 		contentPane.setLayout(gl_contentPane);

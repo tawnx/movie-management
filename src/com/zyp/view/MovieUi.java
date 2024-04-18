@@ -30,26 +30,26 @@ import com.zyp.service.impl.UserServiceImpl;
 public class MovieUi {
 	private Movie movie;
 	private User u;
-	private JFrame jf = new JFrame("电影购票系统");
+	private JFrame jf = new JFrame("Movie Management System");
 	private Container con = jf.getContentPane();
 	private ImageIcon moviebg;
-	private Font font0 = new Font("楷体", 0, 40);
-	private Font font1 = new Font("楷体", 0, 28);
-	private Font font2 = new Font("楷体", 0, 25);
+	private Font font0 = new Font("Times New Roman", 0, 40);
+	private Font font1 = new Font("Times New Roman", 0, 28);
+	private Font font2 = new Font("Times New Roman", 0, 25);
 	/* private JLabel maxLable=new JLabel(); */
-	private JLabel jPic = new JLabel();// 图片
-	private JLabel jmName = new JLabel();// 电影名字
-	private JLabel jmLoca = new JLabel();// 地区
-	private JLabel jmLanguage = new JLabel();// 语言
-	private JLabel jmDuration = new JLabel();// 时长
-	private JLabel jmType = new JLabel();// 类型
-	private JLabel jmGrade = new JLabel();// 评分
-	private JLabel jcomment=new JLabel();//评论列表
-	private JTextArea jcommentcontent=new JTextArea(30,30);//评论内容
-	private JButton jreport=new JButton("发表评论");//评论
+	private JLabel jPic = new JLabel();// 图片 Picture
+	private JLabel jmName = new JLabel();// 电影名字 Movie Name
+	private JLabel jmLoca = new JLabel();// 地区 Area
+	private JLabel jmLanguage = new JLabel();// 语言 Language
+	private JLabel jmDuration = new JLabel();// 时长 Duration
+	private JLabel jmType = new JLabel();// 类型 Type
+	private JLabel jmGrade = new JLabel();// 评分 Grade
+	private JLabel jcomment=new JLabel();//评论列表 Comment
+	private JTextArea jcommentcontent=new JTextArea(30,30);//评论内容 Comment content
+	private JButton jreport=new JButton("Comment");//评论 Comment
 	private JTextArea jmDetail = new JTextArea(50, 50);
-	private JButton jreturn = new JButton("返回主页");
-	private JButton jBuy = new JButton("想看电影");
+	private JButton jreturn = new JButton("HomePage");// 返回主页 Return to the main page
+	private JButton jBuy = new JButton("Buy tickets");//购买 Buy
 	private JPanel p = new JPanel();
 	private UserService userservice=new UserServiceImpl();
 	private CommentService commentservice=new CommentServiceImpl();
@@ -87,37 +87,37 @@ public class MovieUi {
 		jPic.setIcon(moviebg);
 		jf.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		jPic.setBounds(400, 150, 400, 500);
-		jmName.setText("片名：" + movie.getmName());
+		jmName.setText("Title: " + movie.getmName());// 电影名字 Name
 		jmName.setFont(font0);
 		jmName.setBounds(900, 30, 500, 90);
 		jmName.setForeground(Color.LIGHT_GRAY);
-		jmType.setText("类型：" + movie.getmType());
+		jmType.setText("Genre: " + movie.getmType());// 电影类型 Type
 		jmType.setBounds(830, 220, 300, 60);
 		jmType.setFont(font1);
 		jmType.setForeground(Color.LIGHT_GRAY);
-		jmLoca.setText("地区：" + movie.getMlocality());
+		jmLoca.setText("Region: " + movie.getMlocality());// 地区 Region
 		jmLoca.setBounds(1200, 220, 300, 60);
 		jmLoca.setFont(font1);
 		jmLoca.setForeground(Color.LIGHT_GRAY);
-		jmDuration.setText("时长：" + movie.getmDuration() + "分钟");
+		jmDuration.setText("Duration: " + movie.getmDuration() + " minutes");// 时长 Duration 分钟 minutes
 		jmDuration.setBounds(830, 260, 300, 60);
 		jmDuration.setFont(font1);
 		jmDuration.setForeground(Color.LIGHT_GRAY);
-		jmLanguage.setText("语言：" + movie.getMlanguage());
+		jmLanguage.setText("Language: " + movie.getMlanguage());// 语言 Language
 		jmLanguage.setBounds(1200, 260, 300, 60);
 		jmLanguage.setFont(font1);
 		jmLanguage.setForeground(Color.LIGHT_GRAY);
-		jmGrade.setText("评分：" + movie.getmGrade() + "分");
+		jmGrade.setText("Rating: " + movie.getmGrade());// 评分 Rating
 		jmGrade.setBounds(970, 150, 300, 60);
 		jmGrade.setFont(font1);
 		jmGrade.setForeground(Color.LIGHT_GRAY);
-		jmDetail.setText("剧情简介：" + movie.getmDetail());
+		jmDetail.setText("Introduction: " + movie.getmDetail());// 剧情简介 Plot introduction
 		jmDetail.setBounds(830, 340, 600, 310);
 		jmDetail.setFont(font1);
 		jmDetail.setLineWrap(true);
 		jmDetail.setForeground(Color.black);
 		jmDetail.setBackground(Color.white);
-		jreturn.setBounds(530, 700, 150, 50);
+		jreturn.setBounds(530, 700, 200, 50);
 		jreturn.setFont(font1);
 		jreturn.setBackground(Color.GRAY);
 		jreturn.setForeground(Color.white);
@@ -130,7 +130,7 @@ public class MovieUi {
 			}
 
 		});
-		jBuy.setBounds(1000, 700, 150, 50);
+		jBuy.setBounds(1000, 700, 200, 50);
 		jBuy.setFont(font1);
 		jBuy.setBackground(Color.GRAY);
 		jBuy.setForeground(Color.white);
@@ -218,17 +218,17 @@ public class MovieUi {
 		}
 	if(canreport) {
 	  if("".equals(jcommentcontent.getText())) {
-		  JOptionPane.showMessageDialog(null, "评论不能为空");
+		  JOptionPane.showMessageDialog(null, "Comment cannot be empty");
 	  }else {
 		Comment comm=new Comment(u.getUid(),movie.getmId(),jcommentcontent.getText(),new Date());
 		if(commentservice.addComment(comm)) {
-			JOptionPane.showMessageDialog(null, "评论成功");
+			JOptionPane.showMessageDialog(null, "Comment successful");
 			new MovieUi(movie,u);
 			jf.dispose();
 		}
 	  }
 	  }else {
-		  JOptionPane.showMessageDialog(null, "您已评论过该电影");
+		  JOptionPane.showMessageDialog(null, "You have already reviewed this movie");
 	  }
 	}
 
