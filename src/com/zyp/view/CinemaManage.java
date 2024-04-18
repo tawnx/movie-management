@@ -39,7 +39,7 @@ public class CinemaManage extends JInternalFrame {
 	private List<Cinema> cinemalist;
 	private CinemaService cinemaservice=new CinemaServiceImpl();
 	private int row=-1;
-	private Font font = new Font("楷体", 0, 20);
+	private Font font = new Font("Times New Roman", 0, 20);
 	/**
 	 * Launch the application.
 	 */
