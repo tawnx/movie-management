@@ -55,7 +55,7 @@ public class LoginUi implements ActionListener{
 
 		
 		/*	if (!Util.getConnet()) {
-			winMessage("服务端未开启，无法继续！");
+			winMessage("The server is not started, unable to proceed!");
 			return;
 		}*/
 		in.addActionListener(this);
