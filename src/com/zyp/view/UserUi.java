@@ -599,27 +599,27 @@ public class UserUi implements ActionListener {
 		card0_label[0].setForeground(Color.gray);
 		card0_label[1].setText("Username: " + user.getuName()+"Balance："+user.getBalance()+"Yuan");
 		card0_label[1].setForeground(Color.gray);
-		updatepass.setBounds(40, 190, 120, 35);
+		updatepass.setBounds(40, 190, 200, 35);
 		updatepass.addActionListener(this);
 		updatepass.setBackground(Color.gray);
 		updatepass.setFont(font);
 		updatepass.setForeground(Color.white);
 		maxlabel.add(updatepass);
 		isrecharge=new JButton("Recharge amount");
-		isrecharge.setBounds(200, 190, 120, 35);
+		isrecharge.setBounds(300, 190, 200, 35);
 		isrecharge.addActionListener(this);
 		isrecharge.setFont(font);
 		isrecharge.setForeground(Color.white);
 		isrecharge.setBackground(Color.gray);
 		maxlabel.add(isrecharge);
-		rechargeinfo=new JLabel("Please enter amount");
-		rechargeinfo.setBounds(200, 250, 120, 30);
+		rechargeinfo=new JLabel("Amount");
+		rechargeinfo.setBounds(300, 250, 200, 30);
 		rechargeinfo.setFont(font);
 		rechargeinfo.setForeground(Color.LIGHT_GRAY);
 		rechargeinfo.setVisible(false);
 		maxlabel.add(rechargeinfo);
 		charge=new JTextField();
-		charge.setBounds(200, 300, 120, 30);
+		charge.setBounds(300, 300, 200, 30);
 		charge.setBackground(Color.GRAY);
 		charge.setFont(font);
 		charge.setForeground(Color.white);
@@ -627,7 +627,7 @@ public class UserUi implements ActionListener {
 		charge.setVisible(false);
 		maxlabel.add(charge);
 		recharge=new JButton("Recharge");
-		recharge.setBounds(200, 380, 120, 30);
+		recharge.setBounds(300, 380, 200, 30);
 		recharge.setForeground(Color.white);
 		recharge.setBackground(Color.GRAY);
 		recharge.setFont(font);
@@ -635,13 +635,13 @@ public class UserUi implements ActionListener {
 		recharge.addActionListener(this);
 		maxlabel.add(recharge);
 		oldjl = new JLabel("Old Password");
-		oldjl.setBounds(40, 250, 90, 30);
+		oldjl.setBounds(40, 250, 200, 30);
 		oldjl.setForeground(Color.LIGHT_GRAY);
 		oldjl.setFont(font);
 		oldjl.setVisible(false);
 		maxlabel.add(oldjl);
 
-		oldpass.setBounds(40, 280, 120, 30);
+		oldpass.setBounds(40, 280, 200, 30);
 		oldpass.setBackground(Color.GRAY);
 		oldpass.setFont(font);
 		oldpass.setForeground(Color.white);
@@ -650,13 +650,13 @@ public class UserUi implements ActionListener {
 		maxlabel.add(oldpass);
 
 		newjl = new JLabel("New Password");
-		newjl.setBounds(40, 350, 90, 30);
+		newjl.setBounds(40, 350, 200, 30);
 		newjl.setFont(font);
 		newjl.setForeground(Color.LIGHT_GRAY);
 		newjl.setVisible(false);
 		maxlabel.add(newjl);
 
-		newpass.setBounds(40, 380, 120, 30);
+		newpass.setBounds(40, 380, 200, 30);
 		newpass.setBackground(Color.GRAY);
 		newpass.setForeground(Color.white);
 		newpass.setFont(font);
@@ -664,7 +664,7 @@ public class UserUi implements ActionListener {
 		newpass.setVisible(false);
 		maxlabel.add(newpass);
 		// cancel取消
-		cancel.setBounds(40, 500, 120, 30);
+		cancel.setBounds(40, 500, 200, 30);
 		maxlabel.add(cancel);
 		cancel.setBackground(Color.GRAY);
 		cancel.setForeground(Color.white);
@@ -672,7 +672,7 @@ public class UserUi implements ActionListener {
 		cancel.setVisible(false);
 		cancel.addActionListener(this);
 
-		confirmUp.setBounds(40, 445, 120, 30);
+		confirmUp.setBounds(40, 445, 200, 30);
 		confirmUp.setBackground(Color.GRAY);
 		confirmUp.setForeground(Color.white);
 		confirmUp.setFont(font);
@@ -790,20 +790,20 @@ public class UserUi implements ActionListener {
 		}
 		if(obj==recharge) {
 			if("".equals(charge.getText())) {
-				LoginUi.winMessage("您还未输金额！");
+				LoginUi.winMessage("You haven't entered an amount yet!");
 			}else {
 				try {
 					double reprice=Double.parseDouble(charge.getText());
 					this.user.setBalance(this.user.getBalance()+reprice);
 					if(uo.updateUser(user)) {
-						LoginUi.winMessage("充值成功");
-						card0_label[1].setText("用户名 :" + user.getuName()+"余额："+user.getBalance()+"元");
+						LoginUi.winMessage("Recharge successful");
+						card0_label[1].setText("Name :" + user.getuName()+"Balance："+user.getBalance()+"Yuan");
 					}else {
-						LoginUi.winMessage("充值失败");
+						LoginUi.winMessage("Recharge failed");
 					}
 				}
 				catch (NumberFormatException e2) {
-					JOptionPane.showMessageDialog(null, "输入格式错误");
+					JOptionPane.showMessageDialog(null, "Input format error");
 				}
 				
 			}
@@ -813,7 +813,7 @@ public class UserUi implements ActionListener {
 				new MovieUi(movielist.get(row1),this.user);
 				 jf.dispose();
 			}else {
-				JOptionPane.showMessageDialog(null, "请选择电影");
+				JOptionPane.showMessageDialog(null, "Please select a movie");
 			}
 		}
 		if(obj==jsearch_jbutton) {
@@ -825,10 +825,10 @@ public class UserUi implements ActionListener {
 		}
 		if(obj==jupdatere) {
 			if(row==-1) {
-				JOptionPane.showMessageDialog(null, "未选择影票");
+				JOptionPane.showMessageDialog(null, "Ticket not selected");
 			}else {
 			if("".equals(jcommentcontent.getText())) {
-				JOptionPane.showMessageDialog(null, "您还未参与评论");
+				JOptionPane.showMessageDialog(null, "You have not committed yet");
 			}else {
 				jcommentcontent.setEditable(true);
 			}
@@ -836,10 +836,10 @@ public class UserUi implements ActionListener {
 		}
 		if(obj==jreport) {
 			if(row==-1) {
-				JOptionPane.showMessageDialog(null, "未选择影票");
+				JOptionPane.showMessageDialog(null, "Ticket not selected");
 			}else {
 			if("".equals(jcommentcontent.getText())) {
-				JOptionPane.showMessageDialog(null, "评论不能为空");
+				JOptionPane.showMessageDialog(null, "Comment is empty");
 			}else {
 				System.out.println(ccomment);
 				if(ccomment == null){
@@ -847,17 +847,17 @@ public class UserUi implements ActionListener {
 					ccomment=new Comment(user.getUid(),csession.getmId());
 					ccomment.setComment(jcommentcontent.getText());	
 					if(commentservice.addComment(ccomment)) {
-						JOptionPane.showMessageDialog(null, "评论成功");
+						JOptionPane.showMessageDialog(null, "Comment successful");
 						jcommentcontent.setEditable(false);
 						return;
 					}
 				}
 				ccomment.setComment(jcommentcontent.getText());				
 				if(commentservice.updateComment(ccomment)) {
-					JOptionPane.showMessageDialog(null, "修改评论成功");
+					JOptionPane.showMessageDialog(null, "Comment successful");
 					jcommentcontent.setEditable(false);
 				}else {
-					JOptionPane.showMessageDialog(null, "系统错误");
+					JOptionPane.showMessageDialog(null, "System error");
 				}
 				
 			}
@@ -866,24 +866,24 @@ public class UserUi implements ActionListener {
 		if(obj==delTicket) {
 			Ticket ticket;
 			if(row==-1) {
-				JOptionPane.showMessageDialog(null, "未选择影票");
+				JOptionPane.showMessageDialog(null, "Please select a ticket");
 			}else {
 				ticket=ticketlist.get(row);
 				if(ticketservice.delTicket(ticket.gettId())) {
 				Session desession=sessionservice.querySessionById(ticket.getsId());
 				desession.setRemain(desession.getRemain()+1);
 				   if(sessionservice.updateSession(desession)) {
-					JOptionPane.showMessageDialog(null, "退票成功");
+					JOptionPane.showMessageDialog(null, "Refund successful");
 					this.user.setBalance(this.user.getBalance()+desession.getPrice());
 					uo.updateUser(this.user);
 					ticketlist.remove(row);
 					fillticktable(ticketlist);
 				   }else {
-					   JOptionPane.showMessageDialog(null, "退票失败");
+					   JOptionPane.showMessageDialog(null, "Refund failed");
 				   }										
 				}	
 				else {
-					JOptionPane.showMessageDialog(null, "退票失败");
+					JOptionPane.showMessageDialog(null, "Refund failed");
 				}
 			}
 		}
@@ -932,15 +932,15 @@ public class UserUi implements ActionListener {
 			String oldpassw = new String(this.oldpass.getPassword());
 			String newpassw = new String(this.newpass.getPassword());
 			if("".equals(oldpassw) || "".equals(newpassw)) {
-				LoginUi.winMessage("信息不完整！");
+				LoginUi.winMessage("Please enter the password!");
 			} else if(!oldpassw.equals(user.getuPass())) {
-				LoginUi.winMessage("原密码错误，无法更改！");
+				LoginUi.winMessage("The original password is incorrect!");
 			}
 			else {
 				this.user.setuPass(newpassw);
 				
 				if(uo.updateUser(this.user)) {
-					LoginUi.winMessage("密码修改成功！");
+					LoginUi.winMessage("Password changed successfully!");
 					this.oldjl.setText("");
 					this.oldpass.setText("");
 					this.newjl.setText("");
@@ -953,7 +953,7 @@ public class UserUi implements ActionListener {
 					this.cancel.setVisible(false);
 					this.confirmUp.setVisible(false);
 				} else {
-					LoginUi.winMessage("密码修改失败！");
+					LoginUi.winMessage("Password change failed");
 				}
 			}
 			
