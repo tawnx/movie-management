@@ -157,11 +157,11 @@ class Login implements ActionListener {
 		code2.setText(code());
 		code2.setForeground(Color.black);
 
-		button1.setBounds(140, 340, 110, 25);
+		button1.setBounds(110, 340, 130, 25);
 		button1.setFont(font2);
 		button1.addActionListener(this);
 
-		button2.setBounds(270, 340, 110, 25);
+		button2.setBounds(260, 340, 130, 25);
 		button2.setFont(font2);
 		button2.addActionListener(this);
 
