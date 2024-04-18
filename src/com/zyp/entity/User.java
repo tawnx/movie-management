@@ -9,6 +9,11 @@ public class User {
    
 	public User() {
 		super();
+		this.uId = 1;
+		this.uName = "admin";
+		this.uPass = "admin";
+		this.balance = 100;
+		this.uType = 1;
 		// TODO Auto-generated constructor stub
 	}
 	

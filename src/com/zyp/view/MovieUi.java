@@ -95,11 +95,11 @@ public class MovieUi {
 		jmType.setBounds(830, 220, 300, 60);
 		jmType.setFont(font1);
 		jmType.setForeground(Color.LIGHT_GRAY);
-		jmLoca.setText("Region: " + movie.getMlocality());// 地区 Area
+		jmLoca.setText("Region: " + movie.getMlocality());// 地区 Region
 		jmLoca.setBounds(1200, 220, 300, 60);
 		jmLoca.setFont(font1);
 		jmLoca.setForeground(Color.LIGHT_GRAY);
-		jmDuration.setText("Duration: " + movie.getmDuration() + " minutes");// 时长 Duration 分钟 Minutes
+		jmDuration.setText("Duration: " + movie.getmDuration() + " minutes");// 时长 Duration 分钟 minutes
 		jmDuration.setBounds(830, 260, 300, 60);
 		jmDuration.setFont(font1);
 		jmDuration.setForeground(Color.LIGHT_GRAY);
