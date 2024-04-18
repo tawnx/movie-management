@@ -88,49 +88,49 @@ public class AddSession extends JInternalFrame {
 		
 		JScrollPane scrollPane_2 = new JScrollPane();
 		
-		JLabel lblNewLabel = new JLabel("影院编号：");
+		JLabel lblNewLabel = new JLabel("影院编号：");//影院编号
 		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jcIdText = new JTextField();
 		jcIdText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jcIdText.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("场厅编号:");
+		JLabel lblNewLabel_1 = new JLabel("场厅编号:");//场厅编号
 		lblNewLabel_1.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jhallText = new JTextField();
 		jhallText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jhallText.setColumns(10);
 		
-		JLabel lblNewLabel_2 = new JLabel("电影编号:");
+		JLabel lblNewLabel_2 = new JLabel("电影编号:");//电影编号
 		lblNewLabel_2.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jmIdText = new JTextField();
 		jmIdText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jmIdText.setColumns(10);
 		
-		JLabel lblNewLabel_3 = new JLabel("价格:");
+		JLabel lblNewLabel_3 = new JLabel("价格:");//价格
 		lblNewLabel_3.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jpriceText = new JTextField();
 		jpriceText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jpriceText.setColumns(10);
 		
-		JLabel lblNewLabel_4 = new JLabel("时间:");
+		JLabel lblNewLabel_4 = new JLabel("时间:");//时间
 		lblNewLabel_4.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jtimeText = new JTextField();
 		jtimeText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jtimeText.setColumns(10);
 		
-		JLabel lblNewLabel_5 = new JLabel("剩余座位：");
+		JLabel lblNewLabel_5 = new JLabel("剩余座位：");//剩余座位
 		lblNewLabel_5.setFont(new Font("楷体", Font.PLAIN, 20));
 		
 		jremainText = new JTextField();
 		jremainText.setFont(new Font("楷体", Font.PLAIN, 20));
 		jremainText.setColumns(10);
 		
-		JButton btnNewButton = new JButton("添加场次");
+		JButton btnNewButton = new JButton("添加场次");//添加场次
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addsessionactionPerformed(e);
@@ -138,13 +138,13 @@ public class AddSession extends JInternalFrame {
 		});
 		btnNewButton.setFont(new Font("楷体", Font.PLAIN, 20));
 		
-		JLabel lblNewLabel_6 = new JLabel("电影院");
+		JLabel lblNewLabel_6 = new JLabel("电影院");//电影院
 		lblNewLabel_6.setFont(new Font("楷体", Font.PLAIN, 20));
 		
-		JLabel lblNewLabel_7 = new JLabel("场厅");
+		JLabel lblNewLabel_7 = new JLabel("场厅");//场厅
 		lblNewLabel_7.setFont(new Font("楷体", Font.PLAIN, 20));
 		
-		JLabel lblNewLabel_8 = new JLabel("场次");
+		JLabel lblNewLabel_8 = new JLabel("场次");//场次
 		lblNewLabel_8.setFont(new Font("楷体", Font.PLAIN, 20));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
@@ -262,7 +262,7 @@ public class AddSession extends JInternalFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"影院编号", "影院名", "影院地址"
+					"影院编号", "影院名", "影院地址"//影院编号 影院名 影院地址
 				}
 			) {
 				boolean[] columnEditables = new boolean[] {
@@ -282,8 +282,8 @@ public class AddSession extends JInternalFrame {
 		cinematable.setFont(font);
 		cinematable.getTableHeader().setFont(new Font("楷体", 1, 20));
 		cinematable.getTableHeader().setBackground(Color.orange);
-		cinematable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
-		cinematable.getTableHeader().setResizingAllowed(false); // 不可拉动表格
+		cinematable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序 //不可交换顺序
+		cinematable.getTableHeader().setResizingAllowed(false); // 不可拉动表格 // 不可拉动表格
 		cinematable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
@@ -300,7 +300,7 @@ public class AddSession extends JInternalFrame {
 				new Object[][] {
 				},
 				new String[] {
-					"场厅编号", "场厅名", "影院编号","场厅容量"
+					"场厅编号", "场厅名", "影院编号","场厅容量"  // 场厅编号 场厅名 影院编号 场厅容量
 				}
 			) {
 				boolean[] columnEditables = new boolean[] {
@@ -319,8 +319,8 @@ public class AddSession extends JInternalFrame {
 		halltable.setFont(font);
 		halltable.getTableHeader().setFont(new Font("楷体", 1, 20));
 		halltable.getTableHeader().setBackground(Color.orange);
-		halltable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
-		halltable.getTableHeader().setResizingAllowed(false); // 不可拉动表格
+		halltable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序  //不可交换顺序
+		halltable.getTableHeader().setResizingAllowed(false); // 不可拉动表格  // 不可拉动表格
 		halltable.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
@@ -343,6 +343,7 @@ public class AddSession extends JInternalFrame {
 					},
 					new String[] {
 						"场次编号", "场厅编号", "影院编号","电影编号","开始时间","价格","剩余座位"
+							// 场次编号 场厅编号 影院编号 电影编号 开始时间 价格 剩余座位
 					}
 				) {
 					boolean[] columnEditables = new boolean[] {
@@ -360,8 +361,8 @@ public class AddSession extends JInternalFrame {
 			sessiontable.setFont(new Font("楷体", 0, 10));
 			sessiontable.getTableHeader().setFont(new Font("楷体", 1, 15));
 			sessiontable.getTableHeader().setBackground(Color.orange);
-			sessiontable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
-			sessiontable.getTableHeader().setResizingAllowed(false); // 不可拉动表格
+			sessiontable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序  //不可交换顺序
+			sessiontable.getTableHeader().setResizingAllowed(false); // 不可拉动表格  // 不可拉动表格
 			
 			sessiontable.addMouseListener(new MouseAdapter() {
 				@Override
@@ -390,7 +391,7 @@ public class AddSession extends JInternalFrame {
 						 if(movieservice.queryMovieById(mId)!=null) {
 							Session session=new Session(hId,cId,mId,beginTime,price,remain);
 							if(sessionservice.addSession(session)==1) {
-								JOptionPane.showMessageDialog(null, "添加成功"); 
+								JOptionPane.showMessageDialog(null, "添加成功");  //添加成功
 								reset();
 							}else {
 								JOptionPane.showMessageDialog(null, "添加失败"); 
