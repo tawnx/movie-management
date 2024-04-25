@@ -218,17 +218,17 @@ public class MovieUi {
 		}
 	if(canreport) {
 	  if("".equals(jcommentcontent.getText())) {
-		  JOptionPane.showMessageDialog(null, "Comment cannot be empty");
+		  JOptionPane.showMessageDialog(null, "Comment cannot be empty");// 评论不能为空
 	  }else {
 		Comment comm=new Comment(u.getUid(),movie.getmId(),jcommentcontent.getText(),new Date());
 		if(commentservice.addComment(comm)) {
-			JOptionPane.showMessageDialog(null, "Comment successful");
+			JOptionPane.showMessageDialog(null, "Comment successful");// 评论成功
 			new MovieUi(movie,u);
 			jf.dispose();
 		}
 	  }
 	  }else {
-		  JOptionPane.showMessageDialog(null, "You have already reviewed this movie");
+		  JOptionPane.showMessageDialog(null, "You have already reviewed this movie");// 您已经评论过这部电影
 	  }
 	}
 
