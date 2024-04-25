@@ -20,12 +20,9 @@ import com.zyp.entity.User;
 import com.zyp.service.UserService;
 import com.zyp.service.impl.UserServiceImpl;
 
-
-
-
 public class RegisterUi extends JFrame implements ActionListener{
 	UserService userService=new UserServiceImpl();
-	private JFrame jf = new JFrame("电影购票系统");
+	private JFrame jf = new JFrame("电影购票系统");//
 	private Container con = jf.getContentPane();// 获得面板
 
 	private Toolkit toolkit = Toolkit.getDefaultToolkit();

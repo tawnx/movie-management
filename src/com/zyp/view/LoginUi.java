@@ -101,7 +101,7 @@ class Login implements ActionListener {
 	// 按钮
 
 	private final Font font = new Font("Times New Roman", 1, 28);
-	private final Font font1 = new Font("Times New Roman", 0, 20);
+	private final Font font1 = new Font("Times New Roman", 0, 16);
 	private final Font font2 = new Font("Times New Roman", 0, 18);
 	// 字体，样式（粗体，斜体），大小
 
@@ -126,12 +126,12 @@ class Login implements ActionListener {
 		title.setForeground(Color.black);
 
 		name1.setBounds(140, 140, 85, 30);// Position and size of the account
-		name1.setFont(font1);// Font
+		name1.setFont(font2);// Font
 		name1.setForeground(Color.black);// Color of "name1" text
 
 		pass1.setBounds(140, 190, 85, 30);// Position and size of the password
 		pass1.setForeground(Color.black);
-		pass1.setFont(font1);
+		pass1.setFont(font2);
 
 		textName.setBounds(200, 143, 140, 25);
 		textName.setBorder(null);// Border
