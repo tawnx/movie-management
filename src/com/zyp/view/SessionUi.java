@@ -43,18 +43,18 @@ public class SessionUi {
 	private HallService hall = new HallServiceImpl();
 	private Font font = new Font("楷体", 0, 20);
 	private Font font1 = new Font("楷体", 0, 28);
-	private JFrame jf = new JFrame("电影购票系统");
+	private JFrame jf = new JFrame("Movie Ticket Booking System");//电影购票系统
 	private JLabel jb = new JLabel();
 	private JTable tb;// 表
 	private int row = -1;// 行
 	private Container con = jf.getContentPane();
 	private JPanel p = new JPanel();
-	private JButton jBuyticket = new JButton("选座购票");
-	private JButton jreturn=new JButton("返回上一层");
+	private JButton jBuyticket = new JButton("Seat Selection and Booking");//选座购票
+	private JButton jreturn=new JButton("Back to Previous Level");//返回上一层
 	private List<Session> sessionlist;
-    private JLabel search=new JLabel("影院名");
+    private JLabel search=new JLabel("Cinema Name");//影院名
     private JTextField serchText=new JTextField();
-    private JButton serbtn=new JButton("搜索场次");
+    private JButton serbtn=new JButton("Search Showtimes");//搜索场次
 	public SessionUi(Movie mo, User ue) {
 		this.mo = mo;
 		this.ue = ue;
@@ -88,8 +88,8 @@ public class SessionUi {
 				new Object[][] {
 				},
 				new String[] {
-					"场次编号", "场厅名称", "影院名称","影院地址","电影名称","开始时间","价格","剩余座位数"
-				}
+					"Showtime ID", "Hall Name", "Cinema Name","Cinema Address","Movie Title","Start Time","Price","Remaining Seats"
+				}//"场次编号", "场厅名称", "影院名称","影院地址","电影名称","开始时间","价格","剩余座位数"
 			) {
 				boolean[] columnEditables = new boolean[] {
 					false, false, false, false,false,false,false,false
@@ -107,8 +107,8 @@ public class SessionUi {
 		/* tb.setEnabled(true); */
 		tb.getTableHeader().setFont(new Font("楷体", 1, 20));
 		tb.getTableHeader().setBackground(Color.orange);
-		tb.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
-		tb.getTableHeader().setResizingAllowed(false); // 不可拉动表格
+		tb.getTableHeader().setReorderingAllowed(false); // Order cannot be altered
+		tb.getTableHeader().setResizingAllowed(false); // Table cannot be dragged
 		tb.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent me) {
@@ -119,11 +119,11 @@ public class SessionUi {
 		jb.setBounds(0, 100, 1788, 795);
 		sPane.setBounds(0, 100, 1800, 800);
 		sPane.setVisible(true);
-		search.setBounds(200, 60, 150, 60);
+		search.setBounds(50, 60, 180, 60);
 		search.setFont(font1);
-		serchText.setBounds(400, 60, 250, 60);
+		serchText.setBounds(250, 60, 250, 60);
 		serchText.setFont(font1);
-		serbtn.setBounds(700, 60, 200, 60);
+		serbtn.setBounds(550, 60, 270, 60);
 		serbtn.setFont(font1);
 		serbtn.addActionListener(new ActionListener() {
 			
@@ -133,7 +133,7 @@ public class SessionUi {
 				serachactionPerformed(e);
 			}
 		});
-		jreturn.setBounds(980, 60, 250, 60);
+		jreturn.setBounds(850, 60, 360, 60);
 		jreturn.setFont(font1);
 		jreturn.addActionListener(new ActionListener() {
 
@@ -143,7 +143,7 @@ public class SessionUi {
 				returnActionPerformed(e);
 			}
 		});
-		jBuyticket.setBounds(1400, 60, 150, 60);
+		jBuyticket.setBounds(1250, 60, 400, 60);
 		jBuyticket.setFont(font1);
 		jBuyticket.addActionListener(new ActionListener() {
 
@@ -171,7 +171,7 @@ public class SessionUi {
 	protected void serachactionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
 		if("".equals(serchText.getText())) {
-			JOptionPane.showMessageDialog(null, "请输入影院名字");
+			JOptionPane.showMessageDialog(null, "Please enter the cinema name");//请输入影院名字
 		}else {
 			String cName=serchText.getText();
 			List<Session> sesslist =new ArrayList<Session>();
@@ -224,7 +224,7 @@ public class SessionUi {
 		System.out.println(ue.toString());
 
 		if (row == -1) {
-			JOptionPane.showMessageDialog(null, "请选择电影场次");
+			JOptionPane.showMessageDialog(null, "Please select a movie showtime");//请选择电影场次
 		} else {
 			Hall h1 = hall.queryHallById(sessionlist.get(row).gethId());
 			
