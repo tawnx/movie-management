@@ -22,22 +22,22 @@ import com.zyp.service.impl.UserServiceImpl;
 
 public class RegisterUi extends JFrame implements ActionListener{
 	UserService userService=new UserServiceImpl();
-	private JFrame jf = new JFrame("电影购票系统");//
-	private Container con = jf.getContentPane();// 获得面板
+	private JFrame jf = new JFrame("Movie Ticketing System");//电影购票系统
+	private Container con = jf.getContentPane();// Obtain Panel  获得面板
 
 	private Toolkit toolkit = Toolkit.getDefaultToolkit();
-	private Dimension sc = toolkit.getScreenSize();// 获得屏幕尺寸
-	private JLabel name = new JLabel("用 户 名");
-	private JLabel pass = new JLabel("密    码");
-	private JLabel pass2 = new JLabel("确认密码");
+	private Dimension sc = toolkit.getScreenSize();// Obtain Screen Size  获得屏幕尺寸
+	private JLabel name = new JLabel("User");
+	private JLabel pass = new JLabel("Pass");
+	private JLabel pass2 = new JLabel("Confirm Pass");
 	private JTextField textName = new JTextField();
-	private JLabel title = new JLabel("用户注册");
+	private JLabel title = new JLabel("User Registration");//;用户注册
 	private JPasswordField textPs = new JPasswordField();
 	private JPasswordField textPs2 = new JPasswordField();
 	// 密码框
 
-	private JButton button1 = new JButton("确定");
-	private JButton button2 = new JButton("返回");
+	private JButton button1 = new JButton("Confirm");//Confirm
+	private JButton button2 = new JButton("Back");//
 	// 按钮
 	private Font font = new Font("楷体", 1, 28);
 	private Font font1 = new Font("楷体", 0, 20);
@@ -50,7 +50,7 @@ public class RegisterUi extends JFrame implements ActionListener{
 		con.setLayout(null);
 		jf.setSize(1000, 618);
         jf.setLocation((sc.width - 1000) / 2, (sc.height - 618) / 2);
-		jf.setResizable(false);// 窗口大小不可变
+		jf.setResizable(false);// Window size unchanged 窗口大小不可变
 		jf.setVisible(true);
 		jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		con.setVisible(true);
@@ -65,36 +65,36 @@ public class RegisterUi extends JFrame implements ActionListener{
 		name.setFont(font1);
 		name.setForeground(Color.red);
 
-		pass.setBounds(160, 220, 95, 30);// 密码的位置大小
+		pass.setBounds(160, 220, 95, 30);// Password position and size 密码的位置大小
 		pass.setForeground(Color.red);
 		pass.setFont(font1);
 
-		pass2.setBounds(160, 280, 95, 30);
+		pass2.setBounds(120, 280, 130, 30);
 		pass2.setForeground(Color.red);
 		pass2.setFont(font1);
 
 		textName.setBounds(245, 163, 140, 25);
 		textName.setFont(font1);
-		textName.setBorder(null);// 边框
+		textName.setBorder(null);// Border 边框
 
 		textPs.setBounds(245, 223, 140, 25);
 		textPs.setFont(font1);
 		textPs.setBorder(null);
-		textPs.setEchoChar('*');// 可以将密码显示为* ；默认为· 但默认又对其设置了字体时会乱码
+		textPs.setEchoChar('*');// Password can be displayed as *; default is · but if font is set by default, it may be garbled 可以将密码显示为* ；默认为· 但默认又对其设置了字体时会乱码
 
 		textPs2.setBounds(245, 283, 140, 25);
 		textPs2.setFont(font1);
 		textPs2.setBorder(null);
 		textPs2.setEchoChar('*');
 
-		button1.setBounds(295, 340, 90, 25);
+		button1.setBounds(255, 340, 120, 25);
 		button1.setFont(font2);
 		button1.addActionListener(this);
 
-		button2.setBounds(160, 340, 90, 25);
+		button2.setBounds(120, 340, 90, 25);
 		button2.setFont(font2);
 		button2.addActionListener(this);
-		ImageIcon bgim = new ImageIcon("images/101.jpg");// 背景图案
+		ImageIcon bgim = new ImageIcon("images/101.jpg");// Background pattern 背景图案
 		JLabel bg = new JLabel(bgim);
 		Container laycon = jf.getLayeredPane();
 		bg.setSize(jf.getSize().width, jf.getSize().height);
@@ -122,24 +122,24 @@ public class RegisterUi extends JFrame implements ActionListener{
 			String pswd2 = new String(textPs2.getPassword());
 			String name = textName.getText();
 			if ("".equals(name) || "".equals(pswd) || "".equals(pswd2)) {
-				LoginUi.winMessage("账号、密码不能为空！");
+				LoginUi.winMessage("Username and password cannot be empty!");//账号、密码不能为空！
 				cleanUserInfo();
 			} else {
 				if (pswd.equals(pswd2)) {
 					int rs = userService.register(new User(name, pswd,0));
 					if (rs == 3) {
-						LoginUi.winMessage("注册失败，该用户名已存在！");
+						LoginUi.winMessage("Registration failed, the username already exists!");//注册失败，该用户名已存在！
 						cleanUserInfo();
 					} else if(rs == 1) {
 						new LoginUi();
 						this.jf.dispose();
-						LoginUi.winMessage("注册成功！");
+						LoginUi.winMessage("Registration successful!");//注册成功！
 					} else  {
-						LoginUi.winMessage("注册失败，原因。。。");
+						LoginUi.winMessage("Registration failed, reason...");//注册失败，原因。。。
 						cleanUserInfo();
 					}
 				} else{
-					LoginUi.winMessage("两次输入的密码不一致！");
+					LoginUi.winMessage("The passwords entered twice do not match!");//The passwords entered twice do not match!
 					cleanUserInfo();
 				}
 			}
