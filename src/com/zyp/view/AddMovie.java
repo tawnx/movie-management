@@ -55,81 +55,81 @@ public class AddMovie extends JInternalFrame {
 	public AddMovie() {
 		setIconifiable(true);
 		setClosable(true);
-		setTitle("添加电影");
+		setTitle("Add movie");
 		setBounds(50, 50, 1239, 737);
 		
-		JLabel movieNameLabel = new JLabel("电影名字:");
-		movieNameLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel movieNameLabel = new JLabel("Title: ");
+		movieNameLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		movieNameText = new JTextField();
-		movieNameText.setFont(new Font("楷体", Font.PLAIN, 20));
+		movieNameText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		movieNameText.setColumns(10);
 		
-		JLabel movielanglabel = new JLabel("语言:");
-		movielanglabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel movielanglabel = new JLabel("Language: ");
+		movielanglabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		movielangText = new JTextField();
-		movielangText.setFont(new Font("楷体", Font.PLAIN, 20));
+		movielangText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		movielangText.setColumns(10);
 		
-		JLabel movieLoaLabel = new JLabel("地区：");
-		movieLoaLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel movieLoaLabel = new JLabel("Region");
+		movieLoaLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		movieLoaText = new JTextField();
-		movieLoaText.setFont(new Font("楷体", Font.PLAIN, 20));
+		movieLoaText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		movieLoaText.setColumns(10);
 		
-		JLabel picaddressLabel = new JLabel("海报地址:");
-		picaddressLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel picaddressLabel = new JLabel("PosterURL: ");
+		picaddressLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		picaddressText = new JTextField();
-		picaddressText.setFont(new Font("楷体", Font.PLAIN, 20));
+		picaddressText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		picaddressText.setColumns(10);
 		picaddressText.setText("images/");
 		
-		JLabel timeLabel = new JLabel("时长:");
-		timeLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel timeLabel = new JLabel("Duration: ");
+		timeLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		timeText = new JTextField();
-		timeText.setFont(new Font("楷体", Font.PLAIN, 20));
+		timeText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		timeText.setColumns(10);
 		
-		JLabel movietypeLabel = new JLabel("类型:");
-		movietypeLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel movietypeLabel = new JLabel("Genre: ");
+		movietypeLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		 movietypeBox = new JComboBox();
-		 movietypeBox.setFont(new Font("楷体", Font.PLAIN, 20));
-		 movietypeBox.addItem("科幻");
-		 movietypeBox.addItem("动作");
-		 movietypeBox.addItem("爱情");
-		 movietypeBox.addItem("剧情");
-		 movietypeBox.addItem("动漫");
-		JLabel scoreLabel = new JLabel("分数:");
-		scoreLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		 movietypeBox.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		 movietypeBox.addItem("Science Fiction");
+		 movietypeBox.addItem("Action");
+		 movietypeBox.addItem("Romance");
+		 movietypeBox.addItem("Drama");
+		 movietypeBox.addItem("Animation");
+		JLabel scoreLabel = new JLabel("Rating: ");
+		scoreLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		scoreText = new JTextField();
-		scoreText.setFont(new Font("楷体", Font.PLAIN, 20));
+		scoreText.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		scoreText.setColumns(10);
 		
 		 detailtextArea = new JTextArea();
-		 detailtextArea.setFont(new Font("楷体", Font.PLAIN, 20));
+		 detailtextArea.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		 detailtextArea.setLineWrap(true);
 		
-		JButton cancelButton = new JButton("取消");
+		JButton cancelButton = new JButton("Cancel");
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cancelActionPerformed(e);
 			}
 		});
-		cancelButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		cancelButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
-		JButton addButton = new JButton("添加");
+		JButton addButton = new JButton("Add");
 		addButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addactionPerformed(e);
 			}
 		});
-		addButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		addButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -233,46 +233,46 @@ public class AddMovie extends JInternalFrame {
 			double mscore=Double.parseDouble(score);
 			Movie movie=new Movie(movieName,movielang,movieloa,picaddress,detail,mtime,mType,mscore);
 			if(movieservice.addMovie(movie)==1) {
-				JOptionPane.showMessageDialog(null, "添加成功");
+				JOptionPane.showMessageDialog(null, "Add successful");// 添加成功
 				reset();
 			}else {
-				JOptionPane.showMessageDialog(null, "添加失败");
+				JOptionPane.showMessageDialog(null, "Add failed");// 添加失败
 			}
 			
 			
 		} catch (NumberFormatException e2) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null, "格式错误");
+			JOptionPane.showMessageDialog(null, "Format error");// 格式错误
 		}
 		}
 	}
 	public boolean judge() {
 		if("".equals(movieNameText.getText())) {
-			JOptionPane.showMessageDialog(null, "电影名字不能为空");
+			JOptionPane.showMessageDialog(null, "Movie name cannot be empty");// 电影名字不能为空
 			return false;
 		}
 		if("".equals(movielangText.getText())) {
-			JOptionPane.showMessageDialog(null, "电影名字不能为空");
+			JOptionPane.showMessageDialog(null, "Movie language cannot be empty");// 电影语言不能为空
 			return false;
 		}
 		if("".equals(movieLoaText.getText())) {
-			JOptionPane.showMessageDialog(null, "电影地址不能为空");
+			JOptionPane.showMessageDialog(null, "Movie address cannot be empty");// 电影地址不能为空
 			return false;
 		}
 		if("".equals(picaddressText.getText())) {
-			JOptionPane.showMessageDialog(null, "海报地址不能为空");
+			JOptionPane.showMessageDialog(null, "Poster URL cannot be empty");// 海报地址不能为空
 			return false;
 		}
 		if("".equals(timeText.getText())) {
-			JOptionPane.showMessageDialog(null, "电影时长不能为空");
+			JOptionPane.showMessageDialog(null, "Movie duration cannot be empty");// 电影时长不能为空
 			return false;
 		}
 		if("".equals(scoreText.getText())) {
-			JOptionPane.showMessageDialog(null, "评分不能为空");
+			JOptionPane.showMessageDialog(null, "Rating cannot be empty");// 评分不能为空
 			return false;
 		}
 		if("".equals(detailtextArea.getText())) {
-			JOptionPane.showMessageDialog(null, "评分不能为空");
+			JOptionPane.showMessageDialog(null, "Rating cannot be empty");// 评分不能为空
 			return false;
 		}
 		return true;

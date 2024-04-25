@@ -62,11 +62,11 @@ public class AdminUi extends JFrame {
 		setJMenuBar(menuBar);
 		
 		JMenu mnNewMenu = new JMenu("Administrator Functions");//管理员功能
-		mnNewMenu.setFont(new Font("楷体", Font.PLAIN, 20));
+		mnNewMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		menuBar.add(mnNewMenu);
 		
 		JMenu moviemanageMenu = new JMenu("Movie Management");//电影管理
-		moviemanageMenu.setFont(new Font("楷体", Font.PLAIN, 20));
+		moviemanageMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		mnNewMenu.add(moviemanageMenu);
 		
 		JMenuItem addmovieMenuItem = new JMenuItem("Add Movie");//电影添加
@@ -75,7 +75,7 @@ public class AdminUi extends JFrame {
 				addMovieactionPerformed(e);
 			}
 		});
-		addmovieMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		addmovieMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		moviemanageMenu.add(addmovieMenuItem);
 		
 		JMenuItem movieMenuItem = new JMenuItem("Movie Maintenance");//电影维护
@@ -84,11 +84,11 @@ public class AdminUi extends JFrame {
 				mmoviemanageActionPerformed(e);
 			}
 		});
-		movieMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		movieMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		moviemanageMenu.add(movieMenuItem);
 		
 		JMenu cinemamanageMenu = new JMenu("Theater Management");//影院管理
-		cinemamanageMenu.setFont(new Font("楷体", Font.PLAIN, 20));
+		cinemamanageMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		mnNewMenu.add(cinemamanageMenu);
 		
 		JMenuItem addcinemaMenuItem = new JMenuItem("Theater Maintenance");//影院维护
@@ -97,7 +97,7 @@ public class AdminUi extends JFrame {
 				cinemaactionPerformed(e);
 			}
 		});
-		addcinemaMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		addcinemaMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cinemamanageMenu.add(addcinemaMenuItem);
 		
 		JMenuItem addhallMenuItem = new JMenuItem("Auditorium Maintenance");//场厅维护
@@ -106,11 +106,11 @@ public class AdminUi extends JFrame {
 				hallmanageactionPerformed(e);
 			}
 		});
-		addhallMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		addhallMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		cinemamanageMenu.add(addhallMenuItem);
 		
 		JMenu sessionMenu = new JMenu("Session Management");//场次管理
-		sessionMenu.setFont(new Font("楷体", Font.PLAIN, 20));
+		sessionMenu.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		mnNewMenu.add(sessionMenu);
 		
 		JMenuItem addsessionMenuItem = new JMenuItem("Add Session");//场次添加
@@ -119,7 +119,7 @@ public class AdminUi extends JFrame {
 				addsessionActionPerformed(e);
 			}
 		});
-		addsessionMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		addsessionMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		sessionMenu.add(addsessionMenuItem);
 		
 		JMenuItem sessionMenuItem = new JMenuItem("Session Maintenance");//场次维护
@@ -131,7 +131,7 @@ public class AdminUi extends JFrame {
 				tablePane.add(sessionmanage);
 			}
 		});
-		sessionMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		sessionMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		sessionMenu.add(sessionMenuItem);
 		
 		JMenuItem TicketMenuItem = new JMenuItem("Ticket Management");//影票管理
@@ -142,7 +142,7 @@ public class AdminUi extends JFrame {
 				tablePane.add(ticketManager);
 			}
 		});
-		TicketMenuItem.setFont(new Font("楷体", Font.PLAIN, 20));
+		TicketMenuItem.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		mnNewMenu.add(TicketMenuItem);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -171,7 +171,7 @@ public class AdminUi extends JFrame {
 		
 		JLabel lblNewLabel = new JLabel("Welcome to the Movie Ticket Management System");//欢迎使用影票管理系统
 		/*lblNewLabel.setForeground(Color.WHITE);*/
-		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 30));
+		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 30));
 		lblNewLabel.setBounds(862, 111, 800, 54);
 		tablePane.add(lblNewLabel);
 		

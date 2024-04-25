@@ -36,7 +36,7 @@ public class TicketManager extends JInternalFrame {
 	private JTable tickettable;
 	private List<Ticket> ticketlist;
     private TicketService ticketservice=new TicketServiceImpl();
-    private Font font = new Font("楷体", 0, 20);
+    private Font font = new Font("Times New Roman", 0, 20);
     private int trow=-1;
     private JTextField sIdtext;
 	/**
@@ -65,28 +65,28 @@ public class TicketManager extends JInternalFrame {
 		
 		JScrollPane scrollPane = new JScrollPane();
 		
-		JButton deletButton = new JButton("删除");
+		JButton deletButton = new JButton("Delete");// 删除 Delete
 		deletButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				deletactionPerformed(e);
 			}
 		});
-		deletButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		deletButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
 		sIdtext = new JTextField();
-		sIdtext.setFont(new Font("楷体", Font.PLAIN, 20));
+		sIdtext.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		sIdtext.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("场次编号:");
-		lblNewLabel.setFont(new Font("楷体", Font.PLAIN, 20));
+		JLabel lblNewLabel = new JLabel("Session ID: ");// 场次编号 Session ID
+		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		
-		JButton btnNewButton = new JButton("搜索");
+		JButton btnNewButton = new JButton("Search");// 搜索 Search
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				searchactionPerformed(e);
 			}
 		});
-		btnNewButton.setFont(new Font("楷体", Font.PLAIN, 20));
+		btnNewButton.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
@@ -132,7 +132,8 @@ public class TicketManager extends JInternalFrame {
 					new Object[][] {
 					},
 					new String[] {
-						"影票编号", "用户编号", "场次编号","座位号"
+							"Ticket ID", "User ID", "Session ID","Seat Number"
+							// 影票编号 Ticket ID 用户编号 User ID 场次编号 Session ID 座位号 Seat Number
 					}
 				) {
 					boolean[] columnEditables = new boolean[] {
@@ -149,7 +150,7 @@ public class TicketManager extends JInternalFrame {
 			tickettable.setDefaultRenderer(Object.class, r);
 			tickettable.setRowHeight(70);
 			tickettable.setFont(font);
-			tickettable.getTableHeader().setFont(new Font("楷体", 1, 20));
+			tickettable.getTableHeader().setFont(new Font("Times New Roman", 1, 20));
 			tickettable.getTableHeader().setBackground(Color.orange);
 			tickettable.getTableHeader().setReorderingAllowed(false); // 不可交换顺序
 			tickettable.getTableHeader().setResizingAllowed(false); // 不可拉动表格
@@ -176,7 +177,7 @@ public class TicketManager extends JInternalFrame {
 			
 		} catch (NumberFormatException  e2) {
 			// TODO: handle exception
-			JOptionPane.showMessageDialog(null, "格式错误");
+			JOptionPane.showMessageDialog(null, "Format error");// 格式错误 Format error
 		}
 		
 	}
@@ -196,14 +197,14 @@ public class TicketManager extends JInternalFrame {
 			moneyprice=sessionservice.querySessionById(ticketlist.get(trow).getsId()).getPrice();
 			user.setBalance(user.getBalance()+moneyprice);
 			if(userservice.updateUser(user)) {
-				JOptionPane.showMessageDialog(null, "删除影票成功");
+				JOptionPane.showMessageDialog(null, "Delete ticket successfully");// 删除影票成功 Delete ticket successfully
 				ticketlist=ticketservice.queryAllTicket();
 				filltickettable(ticketlist);
 			}else {
-				JOptionPane.showMessageDialog(null, "删除影票失败");
+				JOptionPane.showMessageDialog(null, "Delete ticket failed");// 删除影票失败 Delete ticket failed
 			}
 		}else {
-			JOptionPane.showMessageDialog(null, "请选择影票");
+			JOptionPane.showMessageDialog(null, "Please select a ticket");// 请选择影票 Please select a ticket
 		}
 	}
 
