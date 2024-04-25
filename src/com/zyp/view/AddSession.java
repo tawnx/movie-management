@@ -79,7 +79,7 @@ public class AddSession extends JInternalFrame {
 	public AddSession() {
 		setIconifiable(true);
 		setClosable(true);
-		setTitle("添加场次");
+		setTitle("Add session");// 添加场次 Add session
 		setBounds(100, 100, 1400, 900);
 		
 		JScrollPane scrollPane = new JScrollPane();
